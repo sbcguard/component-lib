@@ -1,0 +1,32 @@
+{
+  "name": "@sbcguard/component-library",
+  "version": "0.0.1",
+  "description": "React Component Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbcguard/component-library.git"
+  },
+  "keywords": [
+    "react",
+    "components"
+  ],
+  "author": "AJ Rugen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbcguard/component-library/issues"
+  },
+  "homepage": "https://github.com/sbcguard/component-library#readme",
+  "peerDependencies": {
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "typescript": "^5.1.6"
+  }
+}
