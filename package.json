@@ -10,7 +10,8 @@
     "format": "prettier --write .",
     "lint:format": "prettier --check .",
     "lint": "eslint src/**",
-    "build-lib": "rollup -c"
+    "build-lib": "rollup -c",
+    "save-all": "git add . && git commit -m 'autosave' && git push"
   },
   "repository": {
     "type": "git",

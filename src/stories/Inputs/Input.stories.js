@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+//import type { Meta, StoryObj } from '@storybook/react'
 import { Input } from '../../atoms/inputs';
-
-const meta: Meta<typeof Input> = {
+//import { placeholder, types } from '../../utils/constants';
+//Commented code is for use with Typescript
+const meta/*: Meta<typeof Input>*/ = {
   title: 'Inputs/Input',
   component: Input,
   argTypes: {
@@ -20,11 +21,9 @@ const meta: Meta<typeof Input> = {
   },
 };
 export default meta;
-type Story = StoryObj<typeof Input>;
+//type Story = StoryObj<typeof Input>;
 
-//const Template = (args) => <Input {...args} />;
-
-export const Default: Story = {
+export const Default/*: Story*/ = {
   args: {
     type: 'text',
     placeholder: 'Enter a text value...',
