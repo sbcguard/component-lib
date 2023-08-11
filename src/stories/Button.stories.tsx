@@ -1,10 +1,11 @@
 import React from 'react';
-import { Story, Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Button } from '../buttons/Button';
+
 
 export default {
   title: 'Example/Button',
-  component: Button,
+  component: Button
 } as Meta;
 
 const Template: StoryFn = (args) => <Button {...args} />;
