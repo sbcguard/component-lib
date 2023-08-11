@@ -1,2 +1,1 @@
-React component library
-TEST
+React Component Library
