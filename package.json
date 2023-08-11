@@ -1,16 +1,19 @@
 {
-  "name": "@sbcguard/component-library",
+  "name": "@sbcguard/component-lib",
   "version": "0.0.1",
   "description": "React Component Library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "format": "prettier --write .",
+    "lint:format": "prettier --check .",
+    "lint": "eslint src/**"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sbcguard/component-library.git"
+    "url": "git+https://github.com/sbcguard/component-lib.git"
   },
   "keywords": [
     "react",
@@ -19,9 +22,9 @@
   "author": "AJ Rugen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sbcguard/component-library/issues"
+    "url": "https://github.com/sbcguard/component-lib/issues"
   },
-  "homepage": "https://github.com/sbcguard/component-library#readme",
+  "homepage": "https://github.com/sbcguard/component-lib#readme",
   "peerDependencies": {
     "react": ">=16.12.0",
     "react-dom": ">=16.12.0"
@@ -40,6 +43,13 @@
     "@storybook/testing-library": "^0.2.0",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.2.2",
