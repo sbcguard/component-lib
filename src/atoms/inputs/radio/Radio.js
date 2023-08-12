@@ -1,7 +1,8 @@
 import React from 'react';
+import './Radio.css'
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
-export const Radio = ({ ...props }) => {
-  return <input {...props} type="radio" />;
+export const Radio = ({ children, ...props }) => {
+  return <div><input {...props} type="radio" /><label>{children}</label></div>;
 };
 Radio.displayName = 'Radio';
