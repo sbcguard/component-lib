@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { withThemeByDataAttribute } from '@storybook/addon-styling';
+import '../src/index.scss';
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -13,5 +13,15 @@ const preview: Preview = {
     },
   },
 };
+export const decorators = [
+  withThemeByDataAttribute({
+    themes: {
+      Light: 'light',
+      Dark: 'dark',
+    },
+    defaultTheme: 'light',
+    attributeName: 'data-bs-theme',
+  }),
+];
 
 export default preview;
