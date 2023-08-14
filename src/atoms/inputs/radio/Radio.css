@@ -1,3 +1,10 @@
 input[type='radio']::before {
   content: '';
 }
+.radio-label {
+  padding-left: 0.25em;
+  padding-right: 0.5em;
+}
+.radio-group-container {
+  display: inline-flex;
+}
