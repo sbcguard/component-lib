@@ -6,6 +6,7 @@ import { types } from '../../utils/constants';
 const meta /*: Meta<typeof Input>*/ = {
   title: 'Inputs/Input',
   component: Input,
+  tags: ['autodocs'],
   argTypes: {
     type: {
       options: Object.keys(types).filter(

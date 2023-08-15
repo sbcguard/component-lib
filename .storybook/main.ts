@@ -17,6 +17,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-mdx-gfm',
     '@storybook/addon-controls',
+    '@storybook/addon-a11y',
   ],
   framework: {
     name: '@storybook/react-webpack5',

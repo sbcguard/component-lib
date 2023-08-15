@@ -11,7 +11,7 @@
     "lint:format": "prettier --check .",
     "lint": "eslint src/**",
     "build-lib": "rollup -c",
-    "save-all": "git add . && git commit -m 'autosave' && git push"
+    "save-all": "prettier --write . && git add . && git commit -m 'autosave' && git push"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "@babel/preset-typescript": "^7.22.5",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-terser": "^0.4.3",
+    "@storybook/addon-a11y": "^7.3.0",
     "@storybook/addon-controls": "^7.2.3",
     "@storybook/addon-essentials": "^7.2.2",
     "@storybook/addon-interactions": "^7.2.2",

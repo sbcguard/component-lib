@@ -2,62 +2,19 @@
 //import type { Meta, StoryObj } from '@storybook/react'
 import { RadioGroup } from '../../atoms/inputs/radio';
 //Commented code is for use with Typescript
+/** Radio Groups are used when there are multiple options, and at least one selection needs to be made. <br />*/
+/** The constructor consist of 2 properties/arguements: <br />*/
+/** fieldName - The name of the table field associated with this input. <br />*/
+/** radios - An Array of objects representing each radios value and label. <br />*/
+/** [ <br /> { <br /> value: 'TEST', <br /> label: 'Value to Display' <br /> } <br /> ] */
 const meta /*: Meta<typeof Input>*/ = {
   title: 'Inputs/RadioGroup',
   component: RadioGroup,
+  tags: ['autodocs'],
   argTypes: {
     fieldName: {
       description: 'Name of the table field/column.',
       control: { type: 'text' },
-    },
-    radios: {
-      description:
-        'Array of objects containing radio options in value/label pairs. Where the value is the submitted value and label is the displayed text associated to the radio input',
-      options: ['Yes/No', 'Example', 'Example 2', 'Custom'],
-      mapping: {
-        'Yes/No': [
-          {
-            value: 'Y',
-            label: 'Y',
-          },
-          {
-            value: 'N',
-            label: 'N',
-          },
-        ],
-        Example: [
-          {
-            value: 'SOMETESTVALUE',
-            label: 'Displayed Value',
-          },
-        ],
-        'Example 2': [
-          {
-            value: 'TEST1',
-            label: 'Option 1',
-          },
-          {
-            value: 'TEST2',
-            label: 'Option 2',
-          },
-          {
-            value: 'TEST3',
-            label: 'Option 3',
-          },
-          {
-            value: 'TEST4',
-            label: 'Option 4',
-          },
-        ],
-        Custom: '',
-      },
-      control: { type: 'select' },
-    },
-    radiosObject: {
-      description:
-        'Array of object representing the radios to be created. Only used in Storybook.',
-      control: { type: 'text' },
-      if: { arg: 'radios', eq: 'Custom' },
     },
   },
 };
@@ -67,6 +24,10 @@ const Template = (args) => <RadioGroup {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   fieldName: 'TESTFIELDNAME',
+};
+export const YesNo = Template.bind({});
+YesNo.args = {
+  fieldName: 'FIELDNAME',
   radios: [
     {
       value: 'Y',

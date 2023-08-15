@@ -8,14 +8,13 @@ export const RadioGroup = ({ ...props }) => {
 
   const [radios, setRadios] = useState([
     {
-      value: 'Y',
-      label: 'Y',
+      value: 'Default',
+      label: 'Default',
     },
   ]);
   useEffect(() => {
-    console.log(props.radios, props.radiosObject);
     props.radios && setRadios([...props.radios]);
-  }, [props.radios, props.radiosObject]);
+  }, [props.radios]);
   const handleRadioGroup = (e) => {
     setChkVal(e.target.value);
   };
