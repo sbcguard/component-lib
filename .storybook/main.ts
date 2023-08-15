@@ -5,6 +5,11 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-interactions',
+    '@storybook/addon-mdx-gfm',
+    '@storybook/addon-controls',
+    '@storybook/addon-a11y',
     {
       name: '@storybook/addon-styling',
       options: {
@@ -13,11 +18,6 @@ const config: StorybookConfig = {
         },
       },
     },
-    '@storybook/addon-onboarding',
-    '@storybook/addon-interactions',
-    '@storybook/addon-mdx-gfm',
-    '@storybook/addon-controls',
-    '@storybook/addon-a11y',
   ],
   framework: {
     name: '@storybook/react-webpack5',
