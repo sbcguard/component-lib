@@ -1,44 +1,34 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { RadioGroup } from '../../atoms/inputs/radio';
+import { Radio } from '../../atoms/inputs/radio';
 //Commented code is for use with Typescript
-/** Radio Groups are used when there are multiple options, and at least one selection needs to be made. <br />*/
-/** The constructor consist of 2 properties/arguements: <br />*/
-/** fieldName - The name of the table field associated with this input. <br />*/
-/** radios - An Array of objects representing each radios value and label. <br />*/
-/** [ <br />*/
-/**&nbsp;&nbsp;&nbsp;&nbsp;{ <br />*/
-/**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; value: 'TEST', <br />*/
-/**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; label: 'Value to Display' <br />*/
-/**&nbsp;&nbsp;&nbsp;&nbsp;} <br /> */
-/**]*/
+/** Radios submitted their value when selected. Typically used in a group of radios where at lease 1 selection is required. <br />*/
+/** The constructor consist of 3 properties/arguements: <br />*/
+/** name - The name of the table field associated with this input. <br />*/
+/** value - Value submitted with the field when radio is selected/checked. <br />*/
+/** children (label) - Displayed value of the radio label. <br />*/
 const meta = {
-  title: 'Inputs/RadioGroup',
-  component: RadioGroup,
+  title: 'Form Elements/Inputs/Radio',
+  component: Radio,
   tags: ['autodocs'],
   argTypes: {
-    fieldName: {
-      description: 'Name of the table field/column.',
+    type: {
+      control: { disable: true },
+    },
+    name: {
+      description: 'Field name associated with the radio.',
       control: { type: 'text' },
     },
-    radios: {
-      description: 'Array of Radio Objects. Format: JSON',
-      control: {
-        type: 'object',
-        properties: {
-          value: {
-            type: 'text',
-            default: 'test',
-          },
-          label: {
-            type: 'text',
-            default: 'test',
-          },
-        },
-      },
+    value: {
+      description: 'Value submitted by a checked radio.',
+      control: { type: 'text' },
+    },
+    children: {
+      description: 'Displayed label value of the radio.',
+      control: { type: 'text' },
     },
   },
-} satisfies Meta<typeof RadioGroup>;
+} satisfies Meta<typeof Radio>;
 
 export default meta;
 
@@ -46,28 +36,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Single: Story = {
   args: {
-    fieldName: 'FIELDNAME',
-    radios: [
-      {
-        value: 1,
-        label: 'Sample',
-      },
-    ],
-  },
-};
-
-export const YesNo: Story = {
-  args: {
-    fieldName: 'FIELDNAME',
-    radios: [
-      {
-        value: 'Y',
-        label: 'Y',
-      },
-      {
-        value: 'N',
-        label: 'N',
-      },
-    ],
+    type: 'radio',
+    name: 'Field Name',
+    checked: true,
+    value: 'TEST',
+    children: 'TEST',
   },
 };

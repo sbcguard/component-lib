@@ -4,7 +4,7 @@ import { Input } from '../../atoms/inputs';
 import { types } from '../../utils/constants';
 //Commented code is for use with Typescript
 const meta /*: Meta<typeof Input>*/ = {
-  title: 'Inputs/Input',
+  title: 'Form Elements/Inputs/Input',
   component: Input,
   tags: ['autodocs'],
   argTypes: {

@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
 import { placeholder, types } from '../../utils/constants';
 import './Input.css';
+type InputProps = {
+  type: string;
+  maxLength: number;
+  required: boolean;
+};
+
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
-export const Input = ({ ...props }) => {
-  const [errMsg, setErrMsg] = useState('');
-  const [type] = useState(props.type);
-  const [keys] = useState(types[type].keys);
-  const [error] = useState(types[type].error);
-  const [checkVal] = useState(types[type].value);
-  const handleInputKey = (e) => {
+export const Input = ({ ...props }: InputProps) => {
+  const [errMsg, setErrMsg] = useState<string>('');
+  const [inputType] = useState<string>(props.type || '');
+  const [keys] = useState<RegExp>(types[inputType].keys);
+  const [error] = useState<string>(types[inputType].error);
+  const [checkVal] = useState<RegExp>(types[inputType].value);
+  const handleInputKey = (e: KeyboardEvent<HTMLInputElement>) => {
     const { key } = e;
     const resolvedKey = key === ' ' ? 'Space' : key;
     if (
@@ -18,10 +24,12 @@ export const Input = ({ ...props }) => {
     )
       e.preventDefault();
   };
-  const handleInput = (e) => {
+  const handleInput = (
+    e: ChangeEvent<HTMLInputElement> | FocusEvent<HTMLInputElement>,
+  ) => {
     const { target } = e;
     const { required } = target;
-    let { value } = target;
+    const { value } = target;
     const isNull = value.trim().length === 0;
     required && isNull && setErrMsg(error);
     required && !isNull && !checkVal.test(value) && setErrMsg(error);
@@ -33,9 +41,7 @@ export const Input = ({ ...props }) => {
   return (
     <div className="input-container">
       <input
-        type="text"
-        maxLength={3}
-        placeholder={placeholder[props.type]}
+        placeholder={placeholder[inputType]}
         /* Attributes above overridden by pass props */
         {...props}
         /* Attributes below preserved */

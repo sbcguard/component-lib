@@ -1,4 +1,15 @@
-export const placeholder = {
+type TypeObj = {
+  keys: RegExp;
+  value: RegExp;
+  error: string;
+};
+type TypeGroup = {
+  [key: string]: TypeObj;
+};
+type PlaceholderObj = {
+  [key: string]: string;
+};
+export const placeholder: PlaceholderObj = {
   //native html input types except for 'button', 'reset', 'submit'
   color: '#000000',
   date: 'yyyy-mm-dd',
@@ -46,7 +57,7 @@ export const placeholder = {
   parcel: '00-000-00-00-000.00 00',
   phone: '(000)000-0000',
 };
-export const types = {
+export const types: TypeGroup = {
   //native html input types except for 'button', 'reset', 'submit'
   /*
     'type attribute name': {
@@ -225,7 +236,7 @@ export const types = {
   hostname: {
     keys: /[a-zA-Z0-9.;,/?:@&=+$-_!~*'()#]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /\b(.){1,}\.(\w+|\d+)\.(.){3}\b/,
-    error: `Please enter a valid hostname (${placeholder.host}).`,
+    error: `Please enter a valid hostname (${placeholder.hostname}).`,
   },
   domain: {
     keys: /[a-zA-Z0-9.;,/?:@&=+$-_!~*'()#]|Tab|Backspace|ArrowLeft|ArrowRight/,
