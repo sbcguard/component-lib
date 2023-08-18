@@ -1,11 +1,7 @@
 import React, { useState, ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
 import { placeholder, types } from '../../utils/constants';
+import { InputProps } from '../../utils/FormTypes';
 import './Input.css';
-type InputProps = {
-  type: string;
-  maxLength: number;
-  required: boolean;
-};
 
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type

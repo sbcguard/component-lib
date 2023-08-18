@@ -1,20 +1,12 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Radio } from './Radio';
-//import { types } from '../../../utils/constants'
-type RadioGroup = {
-  fieldName: string;
-  radios: IRadio[];
-};
-interface IRadio {
-  value: string | number;
-  label: string;
-}
+import { RadioGroupProps, RadioInterface } from '../../../utils/FormTypes';
 
-export const RadioGroup = ({ ...props }: RadioGroup) => {
+export const RadioGroup = ({ ...props }: RadioGroupProps) => {
   const [errMsg /*setErrMsg*/] = useState<string>('');
   const [chkVal, setChkVal] = useState<string>('');
 
-  const [radios, setRadios] = useState<IRadio[]>([
+  const [radios, setRadios] = useState<RadioInterface[]>([
     {
       value: 'Default',
       label: 'Default',
@@ -29,7 +21,7 @@ export const RadioGroup = ({ ...props }: RadioGroup) => {
   return (
     <React.Fragment>
       <div className="radio-group-container">
-        {radios.map((radio: IRadio) => (
+        {radios.map((radio: RadioInterface) => (
           <Radio
             key={`${props.fieldName}-${radio.value}`}
             type="radio"

@@ -55,7 +55,6 @@ export const placeholder: PlaceholderObj = {
   cvv: '000 or 0000',
   ssn: '000-00-0000',
   parcel: '00-000-00-00-000.00 00',
-  phone: '(000)000-0000',
 };
 export const types: TypeGroup = {
   //native html input types except for 'button', 'reset', 'submit'
@@ -274,7 +273,7 @@ export const types: TypeGroup = {
     value: /^\d{4} \d{4} \d{4} \d{4}$/,
     error: `Please enter a valid credit card number (${placeholder.cc}).`,
   },
-  cvv: {
+  ccv: {
     keys: /[0-9]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{3,4}$/,
     error: `Please enter a valid CVV (${placeholder.cvv}).`,
@@ -288,10 +287,5 @@ export const types: TypeGroup = {
     keys: /[0-9]|-|\.|Space|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{2}-\d{3}-\d{2}-\d{2}-\d{3}\.\d{2}\s{1}\d{2}$/,
     error: `Please enter a valid parcel number (${placeholder.parcel})`,
-  },
-  phone: {
-    keys: /[0-9\-()]|Tab|Backspace/,
-    value: /^((\+\d{1,2}\s?)?1?-?\.?\s?\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$/,
-    error: `Please enter a valid telephone number i.e. ${placeholder.tel}.`,
   },
 };
