@@ -242,6 +242,7 @@ export const Password: Story = {
     },
   },
 };
+/**TODO: Develop number masking, possibly via useRef */
 export const SSN: Story = {
   args: {
     type: 'ssn',
