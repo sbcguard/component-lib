@@ -36,7 +36,7 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
+/**Allows for any form of input value with no input control. */
 export const Text: Story = {
   args: {
     type: 'text',
@@ -49,6 +49,7 @@ export const Text: Story = {
     },
   },
 };
+/**Allows for only character values, no numbers. */
 export const Alpha: Story = {
   args: {
     type: 'alpha',
@@ -61,6 +62,7 @@ export const Alpha: Story = {
     },
   },
 };
+/**Allows for integer values only. */
 export const Number: Story = {
   args: {
     type: 'number',
@@ -73,6 +75,7 @@ export const Number: Story = {
     },
   },
 };
+/**Allows for whole number with range selector. */
 export const Range: Story = {
   args: {
     type: 'range',
@@ -85,18 +88,7 @@ export const Range: Story = {
     },
   },
 };
-export const Integer: Story = {
-  args: {
-    type: 'int',
-    required: false,
-    maxLength: 15,
-  },
-  parameters: {
-    controls: {
-      exclude: /type/g,
-    },
-  },
-};
+/**Allows for a decimal value. */
 export const Float: Story = {
   args: {
     type: 'float',

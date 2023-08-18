@@ -46,6 +46,7 @@ export const Input = ({ ...props }: InputProps) => {
         onBlur={handleInput}
         onKeyDown={handleInputKey}
       />
+      {inputType === 'ssn' && <span>{error}</span>}
       <span className="error">{errMsg}</span>
     </div>
   );

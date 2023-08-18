@@ -10,7 +10,11 @@ type PlaceholderObj = {
   [key: string]: string;
 };
 export const placeholder: PlaceholderObj = {
-  //native html input types except for 'button', 'reset', 'submit'
+  text: '',
+  alpha: 'Enter alpha characters only...',
+  number: '0',
+  range: '0',
+  float: '0.0',
   color: '#000000',
   date: 'yyyy-mm-dd',
   'datetime-local': 'yyyy-mm-ddThh:mm',
@@ -18,25 +22,18 @@ export const placeholder: PlaceholderObj = {
   file: '',
   image: '',
   month: 'yyyy-mm',
-  number: '0',
   password: '',
-  range: '0',
   search: 'Begin searching...',
   tel: '(000)000-0000',
   time: 'hh:mm',
   url: 'https://www.domain.com/',
   week: 'yyyy-W00',
-  text: '',
   radio: '',
   checkbox: '',
   hidden: '',
   'select-one': 'Choose an option...',
   'select-multiple': 'Choose multiple...',
   textarea: 'Begin typing...',
-  //custom types define by 'data-type=""'
-  alpha: 'Enter alpha characters only...',
-  int: '0',
-  float: '0.0',
   currency: '0.00',
   zipcode: '00000',
   zip: '00000',
@@ -59,12 +56,37 @@ export const placeholder: PlaceholderObj = {
 export const types: TypeGroup = {
   //native html input types except for 'button', 'reset', 'submit'
   /*
-    'type attribute name': {
-      keys: regex value for allowed keys,
-      value: regex value for allowed value format
-      error: default error message
-    },
-    */
+  'type attribute name': {
+    keys: regex value for allowed keys,
+    value: regex value for allowed value format
+    error: default error message
+  },
+  */
+  text: {
+    keys: /./,
+    value: /.+/,
+    error: 'Please enter valid text only.',
+  },
+  alpha: {
+    keys: /[a-z]|[A-Z]|Space|Tab|Backspace|ArrowLeft|ArrowRight/,
+    value: /^\w+$/,
+    error: 'Please enter valid text only.',
+  },
+  number: {
+    keys: /[0-9]|Tab|Backspace|ArrowLeft|ArrowRight/,
+    value: /^\d+$/,
+    error: 'Please enter a valid whole number.',
+  },
+  range: {
+    keys: /[0-9]/,
+    value: /\d+/,
+    error: 'Please select a valid value.',
+  },
+  float: {
+    keys: /[0-9]|\.|Tab|Backspace|ArrowLeft|ArrowRight/,
+    value: /^\d+\.{1}\d+$/,
+    error: `Please enter a valid decimal number (${placeholder.float}).`,
+  },
   color: {
     keys: /[0-9]|#|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^#([0-9a-fA-F]{6})$/,
@@ -101,11 +123,6 @@ export const types: TypeGroup = {
     value: /^\d{4}-\d{2}$/,
     error: `Please enter a valid month (${placeholder.month}).`,
   },
-  number: {
-    keys: /[0-9]|Tab|Backspace|ArrowLeft|ArrowRight/,
-    value: /^\d+$/,
-    error: 'Please enter a valid number.',
-  },
   password: {
     keys: /[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@\[\]\\\^_`\{\|\}~]|Space|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /./,
@@ -114,11 +131,6 @@ export const types: TypeGroup = {
     // for the missing requirements to make for a shorter regex (1 upper, 1 lower, 1 special, at least 8 char long)
     // /^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$/
     error: 'Please enter a valid password.',
-  },
-  range: {
-    keys: /[0-9]/,
-    value: /\d+/,
-    error: 'Please select a valid value.',
   },
   search: {
     keys: /./,
@@ -145,11 +157,6 @@ export const types: TypeGroup = {
     keys: /[0-9]|-|W|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{4}-W\d{2}$/,
     error: `Please enter a valid week (${placeholder.week}).`,
-  },
-  text: {
-    keys: /./,
-    value: /.+/,
-    error: 'Please enter valid text only.',
   },
   radio: {
     keys: /./,
@@ -182,21 +189,6 @@ export const types: TypeGroup = {
     error: 'Please enter valid text.',
   },
   //custom types define by 'data-type=""' attribute
-  alpha: {
-    keys: /[a-z]|[A-Z]|Space|Tab|Backspace|ArrowLeft|ArrowRight/,
-    value: /^\w+$/,
-    error: 'Please enter valid text only.',
-  },
-  int: {
-    keys: /[0-9]|Tab|Backspace|ArrowLeft|ArrowRight/,
-    value: /^\d+$/,
-    error: `Please enter a valid whole number (${placeholder.int}).`,
-  },
-  float: {
-    keys: /[0-9]|\.|Tab|Backspace|ArrowLeft|ArrowRight/,
-    value: /^\d+\.{1}\d+$/,
-    error: `Please enter a valid decimal number (${placeholder.float}).`,
-  },
   currency: {
     keys: /[0-9]|\.|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d+\.{1}\d{2}$/,
