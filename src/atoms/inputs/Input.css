@@ -5,3 +5,7 @@
 .error {
   color: red;
 }
+.range-selector-display {
+  display: flex;
+  justify-content: space-between;
+}

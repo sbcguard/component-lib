@@ -1,9 +1,12 @@
-import { ChangeEvent } from 'react';
-export type InputProps = {
+import React, { ChangeEvent } from 'react';
+export type InputProps = InputProperties & React.HTMLProps<HTMLInputElement>;
+
+interface InputProperties {
   type: string;
   maxLength: number;
   required: boolean;
-};
+}
+
 export type RadioProps = {
   type: string;
   name: string;

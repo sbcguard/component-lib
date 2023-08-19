@@ -6,10 +6,10 @@ type TypeObj = {
 type TypeGroup = {
   [key: string]: TypeObj;
 };
-type PlaceholderObj = {
+type pholderObj = {
   [key: string]: string;
 };
-export const placeholder: PlaceholderObj = {
+export const pholder: pholderObj = {
   text: '',
   alpha: 'Enter alpha characters only...',
   number: '0',
@@ -85,7 +85,7 @@ export const types: TypeGroup = {
   float: {
     keys: /[0-9]|\.|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d+\.{1}\d+$/,
-    error: `Please enter a valid decimal number (${placeholder.float}).`,
+    error: `Please enter a valid decimal number (${pholder.float}).`,
   },
   color: {
     keys: /[0-9]|#|Tab|Backspace|ArrowLeft|ArrowRight/,
@@ -95,18 +95,18 @@ export const types: TypeGroup = {
   date: {
     keys: /[0-9]|-|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{4}-\d{2}-\d{2}$/,
-    error: `Please enter a valid date (${placeholder.date}).`,
+    error: `Please enter a valid date (${pholder.date}).`,
   },
   'datetime-local': {
     keys: /[0-9]|[T]|:|-|Tab|Backspace|ArrowLeft|ArrowRight/,
     value:
       /^([0-9]{4})\-(1[0-2]|0[0-9])\-(0[0-9]|1[0-9]|2[0-9]|3[0-1])T(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/,
-    error: `Please enter a valid timestamp (${placeholder['datetime-local']}).`,
+    error: `Please enter a valid timestamp (${pholder['datetime-local']}).`,
   },
   email: {
     keys: /[a-zA-Z0-9.!#$%&'*+_\/=?^\-`\{\|\}"\(\),:'<>@\[\]\\]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    error: `Please enter a valid email (${placeholder.email}).`,
+    error: `Please enter a valid email (${pholder.email}).`,
   },
   file: {
     keys: /./,
@@ -121,7 +121,7 @@ export const types: TypeGroup = {
   month: {
     keys: /[0-9]|-|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{4}-\d{2}$/,
-    error: `Please enter a valid month (${placeholder.month}).`,
+    error: `Please enter a valid month (${pholder.month}).`,
   },
   password: {
     keys: /[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@\[\]\\\^_`\{\|\}~]|Space|Tab|Backspace|ArrowLeft|ArrowRight/,
@@ -140,23 +140,23 @@ export const types: TypeGroup = {
   tel: {
     keys: /[0-9\-()]|Tab|Backspace/,
     value: /^((\+\d{1,2}\s?)?1?-?\.?\s?\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$/,
-    error: `Please enter a valid telephone number i.e. ${placeholder.tel}.`,
+    error: `Please enter a valid telephone number i.e. ${pholder.tel}.`,
   },
   time: {
     keys: /[0-9]|:|Tab|Backspace/,
     value: /^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/,
-    error: `Please enter a valid time (${placeholder.time}).`,
+    error: `Please enter a valid time (${pholder.time}).`,
   },
   url: {
     keys: /[a-zA-Z0-9.;,/?:@&=+$-_!~*'()#]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value:
       /\b(https?):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]\b/,
-    error: `Please enter a valid URL (${placeholder.url}).`,
+    error: `Please enter a valid URL (${pholder.url}).`,
   },
   week: {
     keys: /[0-9]|-|W|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{4}-W\d{2}$/,
-    error: `Please enter a valid week (${placeholder.week}).`,
+    error: `Please enter a valid week (${pholder.week}).`,
   },
   radio: {
     keys: /./,
@@ -192,92 +192,92 @@ export const types: TypeGroup = {
   currency: {
     keys: /[0-9]|\.|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d+\.{1}\d{2}$/,
-    error: `Please enter a valid currency value (${placeholder.currency}).`,
+    error: `Please enter a valid currency value (${pholder.currency}).`,
   },
   zipcode: {
     keys: /[0-9]|-|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^[0-9]{5}$/,
-    error: `Please enter a valid zipcode (${placeholder.zipcode}).`,
+    error: `Please enter a valid zipcode (${pholder.zipcode}).`,
   },
   zip: {
     keys: /[0-9]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^[0-9]{5}$/,
-    error: `Please enter a valid zipcode (${placeholder.zip}).`,
+    error: `Please enter a valid zipcode (${pholder.zip}).`,
   },
   zip4: {
     keys: /[0-9]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^[0-9]{4}$/,
-    error: `Please enter a valid zipcode (${placeholder.zip4}).`,
+    error: `Please enter a valid zipcode (${pholder.zip4}).`,
   },
   zipfull: {
     keys: /[0-9]|-|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^[0-9]{5}-[0-9]{4}$/,
-    error: `Please enter a valid zipcode (${placeholder.zipfull}).`,
+    error: `Please enter a valid zipcode (${pholder.zipfull}).`,
   },
   urlhttp: {
     keys: /[a-zA-Z0-9.;,/?:@&=+$-_!~*'()#]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /\b(https?):\/\/(\w|\d){3}\.(\w+|\d+)\.(\w|\d){3}\/\b/,
-    error: `Please enter a valid full URL (${placeholder.urlhttp}).`,
+    error: `Please enter a valid full URL (${pholder.urlhttp}).`,
   },
   urlpart: {
     keys: /[a-zA-Z0-9.;,/?:@&=+$-_!~*'()#]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /\b[\w+|\d+|\W+\/]*\.[\w+|\d+|\W+]{0,5}\b/,
-    error: `Please enter a valid partial url (${placeholder.urlpart}).`,
+    error: `Please enter a valid partial url (${pholder.urlpart}).`,
   },
   hostname: {
     keys: /[a-zA-Z0-9.;,/?:@&=+$-_!~*'()#]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /\b(.){1,}\.(\w+|\d+)\.(.){3}\b/,
-    error: `Please enter a valid hostname (${placeholder.hostname}).`,
+    error: `Please enter a valid hostname (${pholder.hostname}).`,
   },
   domain: {
     keys: /[a-zA-Z0-9.;,/?:@&=+$-_!~*'()#]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /\b(\w+|\d+)\.(.){3}\b/,
-    error: `Please enter a valid domain name (${placeholder.domain}).`,
+    error: `Please enter a valid domain name (${pholder.domain}).`,
   },
   ip: {
     keys: /[0-9]|\.|Tab|Backspace/,
     value: /^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$/,
-    error: `Please enter a valid IP address (${placeholder.ip}).`,
+    error: `Please enter a valid IP address (${pholder.ip}).`,
   },
   timestamp: {
     keys: /[0-9]|\/|:|Tab|Backspace|ArrowLeft|ArrowRight/,
     value:
       /^(1[0-2]|0[0-9])\/(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/([0-9]{4})\s(2[0-3]|[01]?[0-9]):([0-5]?[0-9]):([0-5]?[0-9])[\.][0-9]{3}$/,
-    error: `Please enter a valid timestamp value (${placeholder.timestamp}).`,
+    error: `Please enter a valid timestamp value (${pholder.timestamp}).`,
   },
   datemmddyyyy: {
     keys: /[0-9]|\/|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^(1[0-2]|0[0-9])\/(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/([0-9]{4})$/,
-    error: `Please enter a valid date (${placeholder.datemmddyyyy}).`,
+    error: `Please enter a valid date (${pholder.datemmddyyyy}).`,
   },
   dateyyyymmdd: {
     keys: /[0-9]|-|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^([0-9]{4})\-(1[0-2]|0[0-9])\-(0[0-9]|1[0-9]|2[0-9]|3[0-1])$/,
-    error: `Please enter a valid date (${placeholder.dateyyyymmdd}).`,
+    error: `Please enter a valid date (${pholder.dateyyyymmdd}).`,
   },
   routing: {
     keys: /[0-9]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{9}$/,
-    error: `Please enter a valid ABA Routing number (${placeholder.routing}).`,
+    error: `Please enter a valid ABA Routing number (${pholder.routing}).`,
   },
   cc: {
     keys: /[0-9]|Space|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{4} \d{4} \d{4} \d{4}$/,
-    error: `Please enter a valid credit card number (${placeholder.cc}).`,
+    error: `Please enter a valid credit card number (${pholder.cc}).`,
   },
   ccv: {
     keys: /[0-9]|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{3,4}$/,
-    error: `Please enter a valid CVV (${placeholder.cvv}).`,
+    error: `Please enter a valid CVV (${pholder.cvv}).`,
   },
   ssn: {
     keys: /[0-9]|-|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{3}-\d{2}-\d{4}$/,
-    error: `Please enter a valid SSN (${placeholder.ssn}).`,
+    error: `Please enter a valid SSN (${pholder.ssn}).`,
   },
   parcel: {
     keys: /[0-9]|-|\.|Space|Tab|Backspace|ArrowLeft|ArrowRight/,
     value: /^\d{2}-\d{3}-\d{2}-\d{2}-\d{3}\.\d{2}\s{1}\d{2}$/,
-    error: `Please enter a valid parcel number (${placeholder.parcel})`,
+    error: `Please enter a valid parcel number (${pholder.parcel})`,
   },
 };

@@ -1,5 +1,11 @@
-import React, { useState, ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
-import { placeholder, types } from '../../utils/constants';
+import React, {
+  useState,
+  useRef,
+  ChangeEvent,
+  FocusEvent,
+  KeyboardEvent,
+} from 'react';
+import { pholder, types } from '../../utils/constants';
 import { InputProps } from '../../utils/FormTypes';
 import './Input.css';
 
@@ -11,6 +17,7 @@ export const Input = ({ ...props }: InputProps) => {
   const [keys] = useState<RegExp>(types[inputType].keys);
   const [error] = useState<string>(types[inputType].error);
   const [checkVal] = useState<RegExp>(types[inputType].value);
+  const displayVal = useRef<unknown>('');
   const handleInputKey = (e: KeyboardEvent<HTMLInputElement>) => {
     const { key } = e;
     const resolvedKey = key === ' ' ? 'Space' : key;
@@ -26,6 +33,7 @@ export const Input = ({ ...props }: InputProps) => {
     const { target } = e;
     const { required } = target;
     const { value } = target;
+    displayVal.current = value;
     const isNull = value.trim().length === 0;
     required && isNull && setErrMsg(error);
     required && !isNull && !checkVal.test(value) && setErrMsg(error);
@@ -37,7 +45,7 @@ export const Input = ({ ...props }: InputProps) => {
   return (
     <div className="input-container">
       <input
-        placeholder={placeholder[inputType]}
+        placeholder={pholder[inputType]}
         /* Attributes above overridden by pass props */
         {...props}
         /* Attributes below preserved */
@@ -46,6 +54,13 @@ export const Input = ({ ...props }: InputProps) => {
         onBlur={handleInput}
         onKeyDown={handleInputKey}
       />
+      {inputType === 'range' && (
+        <div className="range-selector-display">
+          <span>{props.min}</span>
+          <span>{`${displayVal.current}`}</span>
+          <span>{props.max}</span>
+        </div>
+      )}
       {inputType === 'ssn' && <span>{error}</span>}
       <span className="error">{errMsg}</span>
     </div>

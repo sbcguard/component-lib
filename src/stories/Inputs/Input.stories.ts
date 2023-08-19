@@ -81,6 +81,9 @@ export const Range: Story = {
     type: 'range',
     required: false,
     maxLength: 15,
+    min: 0,
+    max: 15,
+    step: 1,
   },
   parameters: {
     controls: {
@@ -101,6 +104,7 @@ export const Float: Story = {
     },
   },
 };
+/**Allows for picking color values (#000000) */
 export const Color: Story = {
   args: {
     type: 'color',
