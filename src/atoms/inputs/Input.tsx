@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  ChangeEvent,
-  FocusEvent,
-  KeyboardEvent,
-} from 'react';
+import React, { useState, ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
 import { pholder, types } from '../../utils/constants';
 import { InputProps } from '../../utils/FormTypes';
 import './Input.css';
@@ -17,7 +11,7 @@ export const Input = ({ ...props }: InputProps) => {
   const [keys] = useState<RegExp>(types[inputType].keys);
   const [error] = useState<string>(types[inputType].error);
   const [checkVal] = useState<RegExp>(types[inputType].value);
-  const displayVal = useRef<unknown>('');
+  const [displayVal, setDisplayVal] = useState<string | number | Date>('');
   const handleInputKey = (e: KeyboardEvent<HTMLInputElement>) => {
     const { key } = e;
     const resolvedKey = key === ' ' ? 'Space' : key;
@@ -33,7 +27,7 @@ export const Input = ({ ...props }: InputProps) => {
     const { target } = e;
     const { required } = target;
     const { value } = target;
-    displayVal.current = value;
+    setDisplayVal(value);
     const isNull = value.trim().length === 0;
     required && isNull && setErrMsg(error);
     required && !isNull && !checkVal.test(value) && setErrMsg(error);
@@ -57,7 +51,7 @@ export const Input = ({ ...props }: InputProps) => {
       {inputType === 'range' && (
         <div className="range-selector-display">
           <span>{props.min}</span>
-          <span>{`${displayVal.current}`}</span>
+          <span>{displayVal.toString()}</span>
           <span>{props.max}</span>
         </div>
       )}
