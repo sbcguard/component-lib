@@ -49,7 +49,7 @@ export const pholder: pholderObj = {
   dateyyyymmdd: 'yyyy-mm-dd',
   routing: '000000000',
   cc: '0000 0000 0000 0000',
-  cvv: '000 or 0000',
+  ccv: '000 or 0000',
   ssn: '000-00-0000',
   parcel: '00-000-00-00-000.00 00',
 };

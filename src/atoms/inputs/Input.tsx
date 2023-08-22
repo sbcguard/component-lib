@@ -55,7 +55,6 @@ export const Input = ({ ...props }: InputProps) => {
           <span>{props.max}</span>
         </div>
       )}
-      {inputType === 'ssn' && <span>{error}</span>}
       <span className="error">{errMsg}</span>
     </div>
   );
