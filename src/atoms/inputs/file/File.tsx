@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { pholder, types } from '../../../utils/constants';
 import { InputProps } from '../../../utils/FormTypes';
 import './Input.css';
@@ -8,15 +8,45 @@ import './Input.css';
 export const File = ({ ...props }: InputProps) => {
   const [errMsg, setErrMsg] = useState<string>('');
   const [inputType] = useState<string>(props.type || '');
-  const [keys] = useState<RegExp>(types[inputType].keys);
   const [error] = useState<string>(types[inputType].error);
   const [checkVal] = useState<RegExp>(types[inputType].value);
-  const handleInput = (
-    e: ChangeEvent<HTMLInputElement> | FocusEvent<HTMLInputElement>,
-  ) => {
+  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { target } = e;
-    const { required } = target;
-    const { value } = target;
+    const { required, accept, files } = target;
+    const acceptedFileTypes: string[] = accept
+      ? accept.split(',').map((type) => type.trim())
+      : ['*'];
+    const regexCheck: boolean[] = [];
+    if (files) {
+      const fileTypeErr: string[] = [];
+      for (const file of files) {
+        const { name, type } = file;
+        const isValidType =
+          acceptedFileTypes[0] === '*'
+            ? true
+            : acceptedFileTypes.some((atype: string) =>
+                atype.endsWith('/*')
+                  ? type.startsWith(atype.slice(0, -2))
+                  : type.includes(atype.replace('.', '')),
+              );
+        !isValidType &&
+          fileTypeErr.push(
+            `${name} - Invalid file type, ${type.toLowerCase()}.`,
+          );
+        regexCheck.push(checkVal.test(name));
+      }
+      required && !files
+        ? setErrMsg(error)
+        : required && files && fileTypeErr
+        ? setErrMsg(fileTypeErr.join('\r\n'))
+        : !required && files && fileTypeErr
+        ? setErrMsg(fileTypeErr.join('\r\n'))
+        : setErrMsg('');
+      !fileTypeErr &&
+        regexCheck.includes(false) &&
+        setErrMsg(`Invalid ${inputType} name.`);
+      if (fileTypeErr || regexCheck.includes(false)) target.value = '';
+    }
   };
   return (
     <div className="input-container">
@@ -24,11 +54,8 @@ export const File = ({ ...props }: InputProps) => {
         /* Attributes above overridden by pass props */
         {...props}
         /* Attributes below preserved */
-        placeholder={pholder.file}
-        type="file"
-        onInput={handleInput}
+        placeholder={pholder[inputType]}
         onChange={handleInput}
-        onBlur={handleInput}
       />
       <span className="error">{errMsg}</span>
     </div>
