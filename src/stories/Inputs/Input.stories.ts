@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { Input } from '../../atoms/inputs';
+import { Input } from '../../components/atoms';
 import { types } from '../../utils/constants';
 //Commented code is for use with Typescript
 const meta = {
@@ -8,6 +8,10 @@ const meta = {
   component: Input,
   tags: ['autodocs'],
   argTypes: {
+    label: {
+      description: 'Label value for the Radio group.',
+      control: { type: 'text' },
+    },
     type: {
       options: Object.keys(types).filter(
         (opt) =>
@@ -39,6 +43,7 @@ type Story = StoryObj<typeof meta>;
 /**Allows for any form of input value with no input control. */
 export const Text: Story = {
   args: {
+    label: 'Test: ',
     type: 'text',
     required: false,
     maxLength: 15,
@@ -52,6 +57,7 @@ export const Text: Story = {
 /**Allows for only character values, no numbers. */
 export const Alpha: Story = {
   args: {
+    label: 'Test: ',
     type: 'alpha',
     required: false,
     maxLength: 15,
@@ -65,6 +71,7 @@ export const Alpha: Story = {
 /**Allows for integer values only. */
 export const Number: Story = {
   args: {
+    label: 'Test: ',
     type: 'number',
     required: false,
     maxLength: 15,
@@ -78,6 +85,7 @@ export const Number: Story = {
 /**Allows for whole number with range selector. */
 export const Range: Story = {
   args: {
+    label: 'Test: ',
     type: 'range',
     required: false,
     maxLength: 15,
@@ -94,6 +102,7 @@ export const Range: Story = {
 /**Allows for a decimal value. */
 export const Float: Story = {
   args: {
+    label: 'Test: ',
     type: 'float',
     required: false,
     maxLength: 15,
@@ -107,6 +116,7 @@ export const Float: Story = {
 /**Allows for picking color values (#000000) */
 export const Color: Story = {
   args: {
+    label: 'Test: ',
     type: 'color',
     required: false,
     maxLength: 15,
@@ -119,6 +129,7 @@ export const Color: Story = {
 };
 export const Date: Story = {
   args: {
+    label: 'Test: ',
     type: 'date',
     required: false,
     maxLength: 15,
@@ -131,6 +142,7 @@ export const Date: Story = {
 };
 export const Date_MM_DD_YYYY: Story = {
   args: {
+    label: 'Test: ',
     type: 'datemmddyyyy',
     required: false,
     maxLength: 15,
@@ -143,6 +155,7 @@ export const Date_MM_DD_YYYY: Story = {
 };
 export const Date_YYYY_MM_DD: Story = {
   args: {
+    label: 'Test: ',
     type: 'dateyyyymmdd',
     required: false,
     maxLength: 15,
@@ -156,6 +169,7 @@ export const Date_YYYY_MM_DD: Story = {
 
 export const Datetime_Local: Story = {
   args: {
+    label: 'Test: ',
     type: 'datetime-local',
     required: false,
     maxLength: 15,
@@ -168,6 +182,7 @@ export const Datetime_Local: Story = {
 };
 export const Time: Story = {
   args: {
+    label: 'Test: ',
     type: 'time',
     required: false,
     maxLength: 15,
@@ -180,6 +195,7 @@ export const Time: Story = {
 };
 export const Timestamp: Story = {
   args: {
+    label: 'Test: ',
     type: 'timestamp',
     required: false,
     maxLength: 15,
@@ -192,6 +208,7 @@ export const Timestamp: Story = {
 };
 export const Month: Story = {
   args: {
+    label: 'Test: ',
     type: 'month',
     required: false,
     maxLength: 15,
@@ -204,6 +221,7 @@ export const Month: Story = {
 };
 export const Week: Story = {
   args: {
+    label: 'Test: ',
     type: 'week',
     required: false,
     maxLength: 15,
@@ -216,6 +234,7 @@ export const Week: Story = {
 };
 export const Email: Story = {
   args: {
+    label: 'Test: ',
     type: 'email',
     required: false,
     maxLength: 15,
@@ -228,6 +247,7 @@ export const Email: Story = {
 };
 export const Password: Story = {
   args: {
+    label: 'Test: ',
     type: 'password',
     required: false,
     maxLength: 15,
@@ -241,6 +261,7 @@ export const Password: Story = {
 /**TODO: Develop number masking, possibly via useRef */
 export const SSN: Story = {
   args: {
+    label: 'Test: ',
     type: 'ssn',
     required: false,
     maxLength: 15,
@@ -253,6 +274,7 @@ export const SSN: Story = {
 };
 export const Search: Story = {
   args: {
+    label: 'Test: ',
     type: 'search',
     required: false,
     maxLength: 15,
@@ -265,6 +287,7 @@ export const Search: Story = {
 };
 export const Telephone: Story = {
   args: {
+    label: 'Test: ',
     type: 'tel',
     required: false,
     maxLength: 15,
@@ -277,6 +300,7 @@ export const Telephone: Story = {
 };
 export const URL: Story = {
   args: {
+    label: 'Test: ',
     type: 'url',
     required: false,
     maxLength: 15,
@@ -289,6 +313,7 @@ export const URL: Story = {
 };
 export const URL_Http: Story = {
   args: {
+    label: 'Test: ',
     type: 'urlhttp',
     required: false,
     maxLength: 15,
@@ -301,6 +326,7 @@ export const URL_Http: Story = {
 };
 export const URL_Partial: Story = {
   args: {
+    label: 'Test: ',
     type: 'urlpart',
     required: false,
     maxLength: 15,
@@ -313,6 +339,7 @@ export const URL_Partial: Story = {
 };
 export const Hostname: Story = {
   args: {
+    label: 'Test: ',
     type: 'hostname',
     required: false,
     maxLength: 15,
@@ -325,6 +352,7 @@ export const Hostname: Story = {
 };
 export const Domain: Story = {
   args: {
+    label: 'Test: ',
     type: 'domain',
     required: false,
     maxLength: 15,
@@ -337,6 +365,7 @@ export const Domain: Story = {
 };
 export const IP_Address: Story = {
   args: {
+    label: 'Test: ',
     type: 'ip',
     required: false,
     maxLength: 15,
@@ -349,6 +378,7 @@ export const IP_Address: Story = {
 };
 export const Hidden: Story = {
   args: {
+    label: 'Test: ',
     type: 'hidden',
     required: false,
     maxLength: 15,
@@ -361,6 +391,7 @@ export const Hidden: Story = {
 };
 export const Currency: Story = {
   args: {
+    label: 'Test: ',
     type: 'currency',
     required: false,
     maxLength: 15,
@@ -373,6 +404,7 @@ export const Currency: Story = {
 };
 export const Routing_Number: Story = {
   args: {
+    label: 'Test: ',
     type: 'routing',
     required: false,
     maxLength: 15,
@@ -385,6 +417,7 @@ export const Routing_Number: Story = {
 };
 export const CreditCard: Story = {
   args: {
+    label: 'Test: ',
     type: 'cc',
     required: false,
     maxLength: 15,
@@ -397,6 +430,7 @@ export const CreditCard: Story = {
 };
 export const CCV: Story = {
   args: {
+    label: 'Test: ',
     type: 'ccv',
     required: false,
     maxLength: 15,
@@ -409,6 +443,7 @@ export const CCV: Story = {
 };
 export const ParcelNumber: Story = {
   args: {
+    label: 'Test: ',
     type: 'parcel',
     required: false,
     maxLength: 17,
@@ -421,6 +456,7 @@ export const ParcelNumber: Story = {
 };
 export const ZipCode: Story = {
   args: {
+    label: 'Test: ',
     type: 'zip',
     required: false,
     maxLength: 5,
@@ -433,6 +469,7 @@ export const ZipCode: Story = {
 };
 export const ZipCode4: Story = {
   args: {
+    label: 'Test: ',
     type: 'zip4',
     required: false,
     maxLength: 4,
@@ -445,6 +482,7 @@ export const ZipCode4: Story = {
 };
 export const ZipCodeFull: Story = {
   args: {
+    label: 'Test: ',
     type: 'zipfull',
     required: false,
     maxLength: 10,

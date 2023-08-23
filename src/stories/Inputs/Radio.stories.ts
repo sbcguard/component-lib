@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { Radio } from '../../atoms/inputs/radio';
+import { Radio } from '../../components/atoms/inputs/radio';
 //Commented code is for use with Typescript
 /** Radios submitted their value when selected. Typically used in a group of radios where at lease 1 selection is required. <br />*/
 /** The constructor consist of 3 properties/arguements: <br />*/

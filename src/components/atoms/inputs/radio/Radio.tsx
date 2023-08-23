@@ -1,12 +1,6 @@
-import React, { ChangeEvent, PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
+import { RadioProps } from '../../../../utils/FormTypes';
 import './Radio.css';
-type RadioProps = {
-  type: string;
-  name: string;
-  checked: boolean;
-  value: string | number;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-};
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
 export const Radio = ({

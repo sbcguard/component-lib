@@ -4,11 +4,13 @@ export type FileInputProps = FileInputProperties &
   React.HTMLProps<HTMLInputElement>;
 
 interface InputProperties {
+  label: string;
   type: string;
   maxLength: number;
   required: boolean;
 }
 interface FileInputProperties {
+  label: string;
   type: string;
   multiple: boolean;
   required: boolean;
@@ -22,6 +24,7 @@ export type RadioProps = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 export type RadioGroupProps = {
+  label: string;
   fieldName: string;
   radios: RadioInterface[];
 };
