@@ -1,9 +1,16 @@
 import React, { ChangeEvent } from 'react';
 export type InputProps = InputProperties & React.HTMLProps<HTMLInputElement>;
+export type FileInputProps = FileInputProperties &
+  React.HTMLProps<HTMLInputElement>;
 
 interface InputProperties {
   type: string;
   maxLength: number;
+  required: boolean;
+}
+interface FileInputProperties {
+  type: string;
+  multiple: boolean;
   required: boolean;
 }
 

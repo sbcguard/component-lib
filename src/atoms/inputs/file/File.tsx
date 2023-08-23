@@ -1,11 +1,11 @@
 import React, { useState, ChangeEvent } from 'react';
 import { pholder, types } from '../../../utils/constants';
-import { InputProps } from '../../../utils/FormTypes';
-import './Input.css';
+import { FileInputProps } from '../../../utils/FormTypes';
+import '../Input.css';
 
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
-export const File = ({ ...props }: InputProps) => {
+export const FileInput = ({ ...props }: FileInputProps) => {
   const [errMsg, setErrMsg] = useState<string>('');
   const [inputType] = useState<string>(props.type || '');
   const [error] = useState<string>(types[inputType].error);
@@ -61,4 +61,4 @@ export const File = ({ ...props }: InputProps) => {
     </div>
   );
 };
-File.displayName = 'File';
+FileInput.displayName = 'File';
