@@ -1,6 +1,11 @@
 input[type='checkbox']::before {
   content: '';
 }
+.checkbox-wrapper {
+  display: flex;
+  margin-left: 1em;
+  align-items: center;
+}
 .checkbox-label {
   padding-left: 0.25em;
   padding-right: 0.5em;

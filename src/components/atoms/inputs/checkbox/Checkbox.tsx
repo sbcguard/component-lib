@@ -8,7 +8,7 @@ export const Checkbox = ({
   ...props
 }: PropsWithChildren<CheckboxProps>) => {
   return (
-    <div>
+    <div className="checkbox-wrapper">
       <input {...props} type="checkbox" />
       <label className="checkbox-label">{children}</label>
     </div>
