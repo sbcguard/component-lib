@@ -1,0 +1,10 @@
+input[type='checkbox']::before {
+  content: '';
+}
+.checkbox-label {
+  padding-left: 0.25em;
+  padding-right: 0.5em;
+}
+.checkbox-group-container {
+  display: inline-flex;
+}

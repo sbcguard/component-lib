@@ -19,7 +19,7 @@ export const RadioGroup = ({ ...props }: RadioGroupProps) => {
     setChkVal(e.target.value);
   };
   return (
-    <React.Fragment>
+    <div className="input-container">
       <div className="radio-group-container">
         <label>
           {props.label}
@@ -40,7 +40,7 @@ export const RadioGroup = ({ ...props }: RadioGroupProps) => {
       <div>
         <span className="error">{errMsg}</span>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 RadioGroup.displayName = 'RadioGroup';
