@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { useState, PropsWithChildren } from 'react';
 import { RadioProps } from '../../../../utils/FormTypes';
 import './Radio.css';
 //Placing type before props spread will default to type and allow props
@@ -7,9 +7,13 @@ export const Radio = ({
   children,
   ...props
 }: PropsWithChildren<RadioProps>) => {
+  const [isChecked, setIsChecked] = useState(props.checked);
+  const handleClick = (e) => {
+    setIsChecked(!isChecked);
+  };
   return (
     <div className="radio-wrapper">
-      <input {...props} />
+      <input onClick={handleClick} checked={isChecked} {...props} />
       <label className="radio-label">{children}</label>
     </div>
   );
