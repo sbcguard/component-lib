@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Radio } from './Radio';
 import { RadioGroupProps, RadioInterface } from '../../../../utils/FormTypes';
+import './Radio.css';
 
 export const RadioGroup = ({ ...props }: RadioGroupProps) => {
   const [errMsg /*setErrMsg*/] = useState<string>('');

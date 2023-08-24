@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
 import { pholder, types } from '../../../../utils/constants';
 import { FileInputProps } from '../../../../utils/FormTypes';
-import '../Input.css';
+import '../input/Input.css';
 
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
@@ -52,13 +52,15 @@ export const FileInput = ({ ...props }: FileInputProps) => {
     <div className="input-container">
       <label>
         {props.label}
-        <input
-          /* Attributes above overridden by pass props */
-          {...props}
-          /* Attributes below preserved */
-          placeholder={pholder[inputType]}
-          onChange={handleInput}
-        />
+        <div className="input-wrapper">
+          <input
+            /* Attributes above overridden by pass props */
+            {...props}
+            /* Attributes below preserved */
+            placeholder={pholder[inputType]}
+            onChange={handleInput}
+          />
+        </div>
       </label>
       <span className="error">{errMsg}</span>
     </div>

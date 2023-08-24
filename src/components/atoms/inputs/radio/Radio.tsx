@@ -8,7 +8,7 @@ export const Radio = ({
   ...props
 }: PropsWithChildren<RadioProps>) => {
   return (
-    <div>
+    <div className="radio-wrapper">
       <input {...props} />
       <label className="radio-label">{children}</label>
     </div>

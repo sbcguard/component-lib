@@ -5,7 +5,7 @@
 .input-container label {
   font-weight: 600;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-grow: 1;
 }
 .input-wrapper {
