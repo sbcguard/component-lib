@@ -8,7 +8,7 @@ import { Checkbox } from '../../components/atoms/inputs/checkbox';
 /** value - Value submitted with the field when radio is selected/checked. <br />*/
 /** children (label) - Displayed value of the radio label. <br />*/
 const meta = {
-  title: 'Form Elements/Inputs/Radio',
+  title: 'Form Elements/Inputs/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {
@@ -16,15 +16,15 @@ const meta = {
       control: { disable: true },
     },
     name: {
-      description: 'Field name associated with the radio.',
+      description: 'Field name associated with the checkbox.',
       control: { type: 'text' },
     },
     value: {
-      description: 'Value submitted by a checked radio.',
+      description: 'Value submitted by a checked checkbox.',
       control: { type: 'text' },
     },
     children: {
-      description: 'Displayed label value of the radio.',
+      description: 'Displayed label value of the checkbox.',
       control: { type: 'text' },
     },
   },
