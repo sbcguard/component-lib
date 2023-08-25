@@ -2,19 +2,7 @@ import React, { ChangeEvent, MouseEvent } from 'react';
 export type InputProps = InputProperties & React.HTMLProps<HTMLInputElement>;
 export type FileInputProps = FileInputProperties &
   React.HTMLProps<HTMLInputElement>;
-
-interface InputProperties {
-  label: string;
-  type: string;
-  maxLength: number;
-  required: boolean;
-}
-interface FileInputProperties {
-  label: string;
-  type: string;
-  multiple: boolean;
-  required: boolean;
-}
+export type OptionProps = OptionInterface & React.HTMLProps<HTMLOptionElement>;
 
 export type RadioProps = {
   name: string;
@@ -29,6 +17,12 @@ export type CheckboxProps = {
   value: string | number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
+export type SelectProps = {
+  label: string;
+  fieldName: string;
+  multiple: boolean;
+  options: OptionInterface[];
+};
 export type RadioGroupProps = {
   label: string;
   fieldName: string;
@@ -39,6 +33,23 @@ export type CheckboxGroupProps = {
   fieldName: string;
   boxes: CheckboxInterface[];
 };
+export interface InputProperties {
+  label: string;
+  type: string;
+  maxLength: number;
+  required: boolean;
+}
+export interface FileInputProperties {
+  label: string;
+  type: string;
+  multiple: boolean;
+  required: boolean;
+}
+export interface OptionInterface {
+  value: string | number;
+  displayText: string;
+}
+
 export interface RadioInterface {
   value: string | number;
   label: string;
