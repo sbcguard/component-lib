@@ -2,7 +2,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { RadioGroup } from '../../components/atoms/inputs/radio';
 //Commented code is for use with Typescript
-/** Radio Groups are used when there are multiple options, and at least one selection needs to be made. <br />*/
+/** Radio Groups are used when there are multiple options, and only one selection needs to be made. <br />*/
+/** Intended for small number of options. For larger list, consider a select dropdown <br />*/
+/** On standard form submission, only the selected option's value will submit. <br /><br />*/
 /** The constructor consist of 2 properties/arguements: <br />*/
 /** fieldName - The name of the table field associated with this input. <br />*/
 /** radios - An Array of objects representing each radios value and label. <br />*/
@@ -48,19 +50,6 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Single: Story = {
-  args: {
-    label: 'Test: ',
-    fieldName: 'FIELDNAME',
-    radios: [
-      {
-        value: 1,
-        label: 'Sample',
-      },
-    ],
-  },
-};
-
 export const YesNo: Story = {
   args: {
     label: 'Test: ',
@@ -73,6 +62,26 @@ export const YesNo: Story = {
       {
         value: 'N',
         label: 'N',
+      },
+    ],
+  },
+};
+export const Three_Radios: Story = {
+  args: {
+    label: 'Test: ',
+    fieldName: 'THREERADIOS',
+    radios: [
+      {
+        value: 1,
+        label: '1',
+      },
+      {
+        value: 2,
+        label: '2',
+      },
+      {
+        value: 3,
+        label: '3',
       },
     ],
   },

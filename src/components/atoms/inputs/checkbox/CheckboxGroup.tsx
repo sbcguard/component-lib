@@ -8,19 +8,25 @@ import './Checkbox.css';
 
 export const CheckboxGroup = ({ ...props }: CheckboxGroupProps) => {
   const [errMsg /*setErrMsg*/] = useState<string>('');
-  const [chkVal, setChkVal] = useState<string>('');
+  const [val, setVal] = useState<(string | number)[]>([]);
 
   const [boxes, setBoxes] = useState<CheckboxInterface[]>([
     {
       value: 'Default',
       label: 'Default',
+      isChecked: false,
     },
   ]);
   useEffect(() => {
     props.boxes && setBoxes([...props.boxes]);
   }, [props.boxes]);
   const handleCheckboxGroup = (e: ChangeEvent<HTMLInputElement>) => {
-    setChkVal(e.target.value);
+    const isChecked = e.target.checked;
+    setVal((prevVal) =>
+      isChecked
+        ? [e.target.value, ...prevVal]
+        : prevVal.filter((el) => el !== e.target.value),
+    );
   };
   return (
     <div className="input-container">
@@ -30,9 +36,8 @@ export const CheckboxGroup = ({ ...props }: CheckboxGroupProps) => {
           {boxes.map((box: CheckboxInterface) => (
             <Checkbox
               key={`${props.fieldName}-${box.value}`}
-              type="checkbox"
               name={props.fieldName}
-              checked={chkVal === box.value}
+              isChecked={box.isChecked}
               value={box.value}
               onChange={handleCheckboxGroup}
             >
@@ -44,6 +49,7 @@ export const CheckboxGroup = ({ ...props }: CheckboxGroupProps) => {
       <div>
         <span className="error">{errMsg}</span>
       </div>
+      <input type="hidden" name={props.fieldName} value={val.join(',')} />
     </div>
   );
 };

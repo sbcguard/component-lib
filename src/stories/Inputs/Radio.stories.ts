@@ -12,9 +12,6 @@ const meta = {
   component: Radio,
   tags: ['autodocs'],
   argTypes: {
-    type: {
-      control: { disable: true },
-    },
     name: {
       description: 'Field name associated with the radio.',
       control: { type: 'text' },
@@ -36,10 +33,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Single: Story = {
   args: {
-    type: 'radio',
     name: 'Field Name',
-    checked: true,
     value: 'TEST',
     children: 'TEST',
+    checked: false,
   },
 };

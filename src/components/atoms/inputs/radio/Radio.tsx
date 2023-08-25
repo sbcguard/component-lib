@@ -7,16 +7,18 @@ export const Radio = ({
   children,
   ...props
 }: PropsWithChildren<RadioProps>) => {
-  const [isChecked, setIsChecked] = useState<boolean>(props.checked || false);
-  const checkHandler = () => {
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const handleSingleRadio = (): void => {
     setIsChecked(!isChecked);
   };
   return (
     <div className="radio-wrapper">
       <input
         {...props}
+        type="radio"
         checked={props.checked || isChecked}
-        onChange={props.onChange || checkHandler}
+        onChange={props.onChange}
+        onClick={props.onClick !== undefined ? handleSingleRadio : undefined}
       />
       <label className="radio-label">{children}</label>
     </div>

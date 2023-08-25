@@ -7,7 +7,7 @@ export const Checkbox = ({
   children,
   ...props
 }: PropsWithChildren<CheckboxProps>) => {
-  const [isChecked, setIsChecked] = useState<boolean>(props.checked || false);
+  const [isChecked, setIsChecked] = useState<boolean>(props.isChecked);
   const checkHandler = () => {
     setIsChecked(!isChecked);
   };
@@ -16,8 +16,8 @@ export const Checkbox = ({
       <input
         {...props}
         type="checkbox"
-        onChange={props.onChange || checkHandler}
-        checked={props.checked || isChecked}
+        onClick={checkHandler}
+        checked={isChecked}
       />
       <label className="checkbox-label">{children}</label>
     </div>

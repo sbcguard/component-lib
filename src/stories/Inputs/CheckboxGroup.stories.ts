@@ -56,6 +56,7 @@ export const Single: Story = {
       {
         value: 1,
         label: 'Sample',
+        isChecked: false,
       },
     ],
   },
@@ -69,10 +70,12 @@ export const YesNo: Story = {
       {
         value: 'Y',
         label: 'Y',
+        isChecked: false,
       },
       {
         value: 'N',
         label: 'N',
+        isChecked: false,
       },
     ],
   },

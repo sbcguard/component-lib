@@ -1,7 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Radio } from './Radio';
 import { RadioGroupProps, RadioInterface } from '../../../../utils/FormTypes';
-import './Radio.css';
 
 export const RadioGroup = ({ ...props }: RadioGroupProps) => {
   const [errMsg /*setErrMsg*/] = useState<string>('');
@@ -17,7 +16,7 @@ export const RadioGroup = ({ ...props }: RadioGroupProps) => {
     props.radios && setRadios([...props.radios]);
   }, [props.radios]);
   const handleRadioGroup = (e: ChangeEvent<HTMLInputElement>) => {
-    setChkVal(e.target.value);
+    setChkVal(e.currentTarget.value);
   };
   return (
     <div className="input-container">
@@ -27,9 +26,12 @@ export const RadioGroup = ({ ...props }: RadioGroupProps) => {
           {radios.map((radio: RadioInterface) => (
             <Radio
               key={`${props.fieldName}-${radio.value}`}
-              type="radio"
               name={props.fieldName}
-              checked={chkVal === radio.value}
+              checked={
+                typeof radio.value === 'number'
+                  ? parseInt(chkVal) === radio.value
+                  : chkVal === radio.value
+              }
               value={radio.value}
               onChange={handleRadioGroup}
             >

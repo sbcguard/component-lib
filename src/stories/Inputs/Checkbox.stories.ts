@@ -12,9 +12,6 @@ const meta = {
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {
-    type: {
-      control: { disable: true },
-    },
     name: {
       description: 'Field name associated with the checkbox.',
       control: { type: 'text' },
@@ -36,9 +33,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Single: Story = {
   args: {
-    type: 'checkbox',
     name: 'Field Name',
-    checked: true,
+    isChecked: false,
     value: 'TEST',
     children: 'TEST',
   },

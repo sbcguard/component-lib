@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, MouseEvent } from 'react';
 export type InputProps = InputProperties & React.HTMLProps<HTMLInputElement>;
 export type FileInputProps = FileInputProperties &
   React.HTMLProps<HTMLInputElement>;
@@ -17,16 +17,15 @@ interface FileInputProperties {
 }
 
 export type RadioProps = {
-  type: string;
   name: string;
   checked: boolean;
   value: string | number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (e: MouseEvent<HTMLInputElement>) => void;
 };
 export type CheckboxProps = {
-  type: string;
   name: string;
-  checked: boolean;
+  isChecked: boolean;
   value: string | number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
@@ -47,4 +46,5 @@ export interface RadioInterface {
 export interface CheckboxInterface {
   value: string | number;
   label: string;
+  isChecked: boolean;
 }
