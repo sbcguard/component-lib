@@ -48,7 +48,6 @@ export interface FileInputProperties {
 export interface OptionInterface {
   value: string | number;
   displayText: string;
-  onClick?: (e: MouseEvent<HTMLOptionElement>) => void;
 }
 
 export interface RadioInterface {

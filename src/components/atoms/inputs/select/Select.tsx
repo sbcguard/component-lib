@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, MouseEvent } from 'react';
 import { OptionInterface, SelectProps } from '../../../../utils/FormTypes';
 import { Option } from './Option';
 import './Select.css';
@@ -34,8 +34,11 @@ export const Select = ({ ...props }: SelectProps) => {
             .map((opt: HTMLOptionElement) => opt.value),
     );
   };
-  const handleOptionClick = () => {
-    console.log('opt clicked');
+  const handleSelectClick = (e: MouseEvent<HTMLSelectElement>) => {
+    const options = [...e.currentTarget.children];
+    console.log(
+      options.filter((el) => el instanceof HTMLOptionElement && el.selected),
+    );
   };
 
   return (
@@ -48,24 +51,16 @@ export const Select = ({ ...props }: SelectProps) => {
             onChange={handleSelection}
             multiple={props.multiple}
             value={selection}
+            onClick={handleSelectClick}
           >
             <option value="">Choose...</option>
-            {options.map((option: OptionInterface) =>
-              props.multiple ? (
-                <Option
-                  key={`${props.fieldName}-${option.value}`}
-                  value={option.value}
-                  displayText={option.displayText}
-                  onClick={handleOptionClick}
-                />
-              ) : (
-                <Option
-                  key={`${props.fieldName}-${option.value}`}
-                  value={option.value}
-                  displayText={option.displayText}
-                />
-              ),
-            )}
+            {options.map((option: OptionInterface) => (
+              <Option
+                key={`${props.fieldName}-${option.value}`}
+                value={option.value}
+                displayText={option.displayText}
+              />
+            ))}
           </select>
         </label>
       </div>
