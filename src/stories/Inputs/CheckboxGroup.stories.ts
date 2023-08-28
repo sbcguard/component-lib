@@ -13,7 +13,7 @@ import { CheckboxGroup } from '../../components/atoms/inputs/checkbox/CheckboxGr
 /**&nbsp;&nbsp;&nbsp;&nbsp;} <br /> */
 /**]*/
 const meta = {
-  title: 'Form Elements/Inputs/CheckboxGroup',
+  title: 'Form Elements/Inputs/Checkbox',
   component: CheckboxGroup,
   tags: ['autodocs'],
   argTypes: {
@@ -75,13 +75,13 @@ export const YesNo: Story = {
     required: true,
     boxes: [
       {
-        value: 'Y',
-        label: 'Y',
+        value: '1',
+        label: 'Option 1',
         isChecked: false,
       },
       {
-        value: 'N',
-        label: 'N',
+        value: 2,
+        label: 'Option 2',
         isChecked: false,
       },
     ],

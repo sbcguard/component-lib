@@ -12,7 +12,7 @@ export const Radio = ({
     setIsChecked(!isChecked);
   };
   return (
-    <div className="radio-wrapper">
+    <React.Fragment>
       <input
         {...props}
         type="radio"
@@ -21,7 +21,7 @@ export const Radio = ({
         onClick={props.onClick !== undefined ? handleSingleRadio : undefined}
       />
       <label className="radio-label">{children}</label>
-    </div>
+    </React.Fragment>
   );
 };
 Radio.displayName = 'Radio';

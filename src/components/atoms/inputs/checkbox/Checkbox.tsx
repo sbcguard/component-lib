@@ -8,19 +8,24 @@ export const Checkbox = ({
   ...props
 }: PropsWithChildren<CheckboxProps>) => {
   const [isChecked, setIsChecked] = useState<boolean>(props.isChecked);
+  const [filteredProps] = useState({
+    name: props.name,
+    onChange: props.onChange,
+    value: props.value,
+  });
   const checkHandler = () => {
     setIsChecked(!isChecked);
   };
   return (
-    <div className="checkbox-wrapper">
+    <React.Fragment>
       <input
-        {...props}
+        {...filteredProps}
         type="checkbox"
         onClick={checkHandler}
         checked={isChecked}
       />
-      <label className="checkbox-label">{children}</label>
-    </div>
+      <label className="cb-label">{children}</label>
+    </React.Fragment>
   );
 };
 Checkbox.displayName = 'Checkbox';

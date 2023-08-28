@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
 import { pholder, types } from '../../../../utils/constants';
 import { FileInputProps } from '../../../../utils/FormTypes';
-import '../input/Input.css';
+import './File.css';
 
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
@@ -49,10 +49,10 @@ export const FileInput = ({ ...props }: FileInputProps) => {
     }
   };
   return (
-    <div className="input-container">
+    <div className="file-container">
       <label>
         {props.label}
-        <div className="input-wrapper">
+        <div className="file-wrapper">
           <input
             /* Attributes above overridden by pass props */
             {...props}

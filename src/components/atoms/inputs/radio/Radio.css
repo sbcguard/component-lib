@@ -9,6 +9,9 @@ input[type='radio']::before {
   display: flex;
   justify-content: flex-start;
 }
+.radio-group-label {
+  font-weight: 600;
+}
 .radio-label {
   padding-left: 0.25em;
   padding-right: 0.5em;

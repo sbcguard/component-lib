@@ -1,6 +1,7 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, FocusEvent } from 'react';
 import { Radio } from './Radio';
 import { RadioGroupProps, RadioInterface } from '../../../../utils/FormTypes';
+import './Radio.css';
 
 export const RadioGroup = ({ ...props }: RadioGroupProps) => {
   const [errMsg /*setErrMsg*/] = useState<string>('');
@@ -17,25 +18,32 @@ export const RadioGroup = ({ ...props }: RadioGroupProps) => {
   const handleRadioGroup = (e: ChangeEvent<HTMLInputElement>) => {
     setChkVal(e.currentTarget.value);
   };
+  const validate = (e: FocusEvent<HTMLLabelElement>) => {
+    console.log(e.target, chkVal);
+  };
   return (
     <div className="radio-container">
       <div className="radio-group-container">
-        <label>
-          {props.label}
+        <label onBlur={validate}>
+          <span className="radio-group-label">{props.label}</span>
           {radios.map((radio: RadioInterface) => (
-            <Radio
+            <div
+              className="radio-wrapper"
               key={`${props.fieldName}-${radio.value}`}
-              name={props.fieldName}
-              checked={
-                typeof radio.value === 'number'
-                  ? parseInt(chkVal) === radio.value
-                  : chkVal === radio.value
-              }
-              value={radio.value}
-              onChange={handleRadioGroup}
             >
-              {radio.label}
-            </Radio>
+              <Radio
+                name={props.fieldName}
+                checked={
+                  typeof radio.value === 'number'
+                    ? parseInt(chkVal) === radio.value
+                    : chkVal === radio.value
+                }
+                value={radio.value}
+                onChange={handleRadioGroup}
+              >
+                {radio.label}
+              </Radio>
+            </div>
           ))}
         </label>
       </div>

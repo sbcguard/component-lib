@@ -36,20 +36,21 @@ export const CheckboxGroup = ({ ...props }: CheckboxGroupProps) => {
       : setErrMsg('');
   };
   return (
-    <div className="input-container">
-      <div className="checkbox-group-container">
+    <div className="cb-container">
+      <div className="cb-group-container">
         <label>
-          {props.label}
+          <span className="cb-group-label">{props.label}</span>
           {boxes.map((box: CheckboxInterface) => (
-            <Checkbox
-              key={`${props.fieldName}-${box.value}`}
-              name={`${props.fieldName}-${box.value}`}
-              isChecked={box.isChecked}
-              value={box.value}
-              onChange={handleCheckboxGroup}
-            >
-              {box.label}
-            </Checkbox>
+            <div key={`${props.fieldName}-${box.value}`} className="cb-wrapper">
+              <Checkbox
+                name={`${props.fieldName}-${box.value}`}
+                isChecked={box.isChecked}
+                value={box.value}
+                onChange={handleCheckboxGroup}
+              >
+                {box.label}
+              </Checkbox>
+            </div>
           ))}
         </label>
       </div>

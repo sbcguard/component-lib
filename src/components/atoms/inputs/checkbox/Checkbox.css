@@ -1,16 +1,28 @@
 input[type='checkbox']::before {
   content: '';
 }
-.checkbox-wrapper {
+.cb-container {
+  display: flex;
+  flex-direction: column;
+}
+.cb-container label {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+.cb-group-label {
+  font-weight: 600;
+}
+.cb-wrapper {
   display: flex;
   margin-left: 1em;
   align-items: center;
 }
-.checkbox-label {
+.cb-label {
   padding-left: 0.25em;
   padding-right: 0.5em;
 }
-.checkbox-group-container {
+.cb-group-container {
   display: inline-flex;
 }
 .d-none {
