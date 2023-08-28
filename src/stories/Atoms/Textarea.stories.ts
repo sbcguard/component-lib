@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { Textarea } from '../../components/atoms';
+import { Textarea } from '../../components/molecules';
 //Commented code is for use with Typescript
 /**This input element is used for large/lengthy text input, typically text input exceeding 30 characters.  */
 const meta = {

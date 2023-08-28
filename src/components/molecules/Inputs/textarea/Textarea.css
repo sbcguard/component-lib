@@ -1,0 +1,18 @@
+.textarea-container {
+  display: flex;
+}
+.textarea-container label:first-of-type {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.textarea-label {
+  font-weight: 600;
+}
+.textarea-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+  align-items: flex-start;
+}
