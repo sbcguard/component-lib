@@ -4,12 +4,12 @@ import {
   CheckboxGroupProps,
   CheckboxInterface,
 } from '../../../../utils/FormTypes';
+import { types } from '../../../../utils/constants';
 import './Checkbox.css';
 
 export const CheckboxGroup = ({ ...props }: CheckboxGroupProps) => {
-  const [errMsg /*setErrMsg*/] = useState<string>('');
+  const [errMsg, setErrMsg] = useState<string>('');
   const [val, setVal] = useState<(string | number)[]>([]);
-
   const [boxes, setBoxes] = useState<CheckboxInterface[]>([
     {
       value: 'Default',
@@ -22,11 +22,18 @@ export const CheckboxGroup = ({ ...props }: CheckboxGroupProps) => {
   }, [props.boxes]);
   const handleCheckboxGroup = (e: ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
-    setVal((prevVal) =>
-      isChecked
-        ? [e.target.value, ...prevVal]
-        : prevVal.filter((el) => el !== e.target.value),
-    );
+    setVal((prevVal) => {
+      const newVal = isChecked
+        ? [...prevVal, e.target.value]
+        : prevVal.filter((el) => el !== e.target.value);
+      validate(newVal);
+      return newVal;
+    });
+  };
+  const validate = (selections: (string | number)[]) => {
+    props.required && selections.length === 0
+      ? setErrMsg(types.checkbox.error)
+      : setErrMsg('');
   };
   return (
     <div className="input-container">
@@ -36,7 +43,7 @@ export const CheckboxGroup = ({ ...props }: CheckboxGroupProps) => {
           {boxes.map((box: CheckboxInterface) => (
             <Checkbox
               key={`${props.fieldName}-${box.value}`}
-              name={props.fieldName}
+              name={`${props.fieldName}-${box.value}`}
               isChecked={box.isChecked}
               value={box.value}
               onChange={handleCheckboxGroup}

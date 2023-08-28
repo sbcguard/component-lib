@@ -25,6 +25,11 @@ const meta = {
       description: 'Name of the table field/column.',
       control: { type: 'text' },
     },
+    required: {
+      description:
+        'Require at least one checkbox selection. Overriding native use of checkboxes.',
+      control: { type: 'boolean' },
+    },
     boxes: {
       description: 'Array of Checkbox Objects. Format: JSON',
       control: {
@@ -52,6 +57,7 @@ export const Single: Story = {
   args: {
     label: 'Test: ',
     fieldName: 'FIELDNAME',
+    required: false,
     boxes: [
       {
         value: 1,
@@ -66,6 +72,7 @@ export const YesNo: Story = {
   args: {
     label: 'Test: ',
     fieldName: 'FIELDNAME',
+    required: true,
     boxes: [
       {
         value: 'Y',

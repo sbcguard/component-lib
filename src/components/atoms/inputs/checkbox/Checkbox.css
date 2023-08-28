@@ -13,3 +13,6 @@ input[type='checkbox']::before {
 .checkbox-group-container {
   display: inline-flex;
 }
+.d-none {
+  display: none;
+}

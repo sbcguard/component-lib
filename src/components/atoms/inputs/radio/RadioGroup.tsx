@@ -5,7 +5,6 @@ import { RadioGroupProps, RadioInterface } from '../../../../utils/FormTypes';
 export const RadioGroup = ({ ...props }: RadioGroupProps) => {
   const [errMsg /*setErrMsg*/] = useState<string>('');
   const [chkVal, setChkVal] = useState<string>('');
-
   const [radios, setRadios] = useState<RadioInterface[]>([
     {
       value: 'Default',
@@ -19,7 +18,7 @@ export const RadioGroup = ({ ...props }: RadioGroupProps) => {
     setChkVal(e.currentTarget.value);
   };
   return (
-    <div className="input-container">
+    <div className="radio-container">
       <div className="radio-group-container">
         <label>
           {props.label}

@@ -20,6 +20,7 @@ export type CheckboxProps = {
 export type SelectProps = {
   label: string;
   fieldName: string;
+  required: boolean;
   multiple: boolean;
   options: OptionInterface[];
 };
@@ -31,6 +32,7 @@ export type RadioGroupProps = {
 export type CheckboxGroupProps = {
   label: string;
   fieldName: string;
+  required: boolean;
   boxes: CheckboxInterface[];
 };
 export interface InputProperties {

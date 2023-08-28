@@ -27,6 +27,10 @@ const meta = {
       description: 'Name of the table field/column.',
       control: { type: 'text' },
     },
+    required: {
+      description: 'Required for form submission.',
+      control: { type: 'boolean' },
+    },
     multiple: {
       description: 'Allow multiple option selection.',
       control: { type: 'boolean' },
@@ -59,6 +63,7 @@ export const SingleSelect: Story = {
     label: 'Test: ',
     fieldName: 'FIELDNAME',
     multiple: false,
+    required: false,
     options: [
       {
         value: 1,
@@ -72,6 +77,7 @@ export const MultiSelect: Story = {
   args: {
     label: 'Test: ',
     fieldName: 'SOMEFIELDNAME',
+    required: false,
     multiple: true,
     options: [
       {

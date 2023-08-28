@@ -1,14 +1,12 @@
-import React, { useState, useEffect, ChangeEvent, MouseEvent } from 'react';
+import React, { useState, useEffect, FocusEvent, MouseEvent } from 'react';
 import { OptionInterface, SelectProps } from '../../../../utils/FormTypes';
+import { types } from '../../../../utils/constants';
 import { Option } from './Option';
 import './Select.css';
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
 export const Select = ({ ...props }: SelectProps) => {
-  const [errMsg /*setErrMsg*/] = useState<string>('');
-  const [selection, setSelection] = useState<string | string[]>(
-    props.multiple ? [] : '',
-  );
+  const [errMsg, setErrMsg] = useState<string>('');
   const [options, setOptions] = useState<OptionInterface[]>([
     {
       value: 'Default',
@@ -17,28 +15,51 @@ export const Select = ({ ...props }: SelectProps) => {
   ]);
   useEffect(() => {
     props.options && setOptions([...props.options]);
+    console.log('effect');
   }, [props.options]);
-  const handleSelection = (e: ChangeEvent<HTMLSelectElement>) => {
-    const selections: HTMLOptionElement[] = Array.from(
-      e.currentTarget.selectedOptions,
-    );
-    //console.log(props.multiple);
-    setSelection(
-      props.multiple
-        ? selections
-            .filter((opt: HTMLOptionElement) => opt.selected)
-            .map((opt: HTMLOptionElement) => opt.value)
-            .join(',')
-        : selections
-            .filter((opt: HTMLOptionElement) => opt.selected)
-            .map((opt: HTMLOptionElement) => opt.value),
-    );
-  };
+
   const handleSelectClick = (e: MouseEvent<HTMLSelectElement>) => {
-    const options = [...e.currentTarget.children];
-    console.log(
-      options.filter((el) => el instanceof HTMLOptionElement && el.selected),
-    );
+    if (props.multiple) {
+      e.preventDefault();
+      const clickedOption: HTMLOptionElement | null =
+        e.target instanceof HTMLOptionElement ? e.target : null;
+      if (clickedOption) {
+        clickedOption.selected = !clickedOption.selected;
+        clickedOption?.parentElement?.focus();
+      }
+    }
+    validateEl(e.currentTarget);
+  };
+  const validate = (e: FocusEvent<HTMLSelectElement>) => {
+    const { target } = e;
+    const { selectedOptions } = target;
+    if (props.required) {
+      if (props.multiple) {
+        selectedOptions.length === 0 ? displayErr() : clearErr();
+      } else {
+        selectedOptions[0].value ? clearErr() : displayErr();
+      }
+    } else {
+      clearErr();
+    }
+  };
+  const validateEl = (el: HTMLSelectElement) => {
+    const { selectedOptions } = el;
+    if (props.required) {
+      if (props.multiple) {
+        selectedOptions.length === 0 ? displayErr() : clearErr();
+      } else {
+        selectedOptions[0].value ? clearErr() : displayErr();
+      }
+    } else {
+      clearErr();
+    }
+  };
+  const displayErr = () => {
+    setErrMsg(types[props.multiple ? 'select-multiple' : 'select-one'].error);
+  };
+  const clearErr = () => {
+    setErrMsg('');
   };
 
   return (
@@ -48,12 +69,12 @@ export const Select = ({ ...props }: SelectProps) => {
           {props.label}
           <select
             name={props.fieldName}
-            onChange={handleSelection}
             multiple={props.multiple}
-            value={selection}
-            onClick={handleSelectClick}
+            required={props.required}
+            onMouseDown={handleSelectClick}
+            onBlur={validate}
           >
-            <option value="">Choose...</option>
+            {!props.multiple && <option value="">Choose...</option>}
             {options.map((option: OptionInterface) => (
               <Option
                 key={`${props.fieldName}-${option.value}`}
