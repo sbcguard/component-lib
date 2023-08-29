@@ -3,7 +3,7 @@ import { RadioProps } from '../../../../utils/FormTypes';
 import './Radio.css';
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
-export const Radio = ({
+export const ControlledRadio = ({
   children,
   ...props
 }: PropsWithChildren<RadioProps>) => {
@@ -26,4 +26,4 @@ export const Radio = ({
     </React.Fragment>
   );
 };
-Radio.displayName = 'Radio';
+ControlledRadio.displayName = 'Radio';

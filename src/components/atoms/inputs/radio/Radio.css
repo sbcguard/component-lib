@@ -1,7 +1,6 @@
-input[type='radio']::before {
-  content: '';
-}
 .radio-label {
-  padding-left: 0.25em;
-  padding-right: 0.5em;
+  align-items: center;
+}
+.radio-label input[type='radio'] {
+  margin-right: 0.5em;
 }

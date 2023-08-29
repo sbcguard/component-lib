@@ -5,7 +5,7 @@ import './Input.css';
 
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
-export const Input = ({ ...props }: InputProps) => {
+export const ControlledInput = ({ ...props }: InputProps) => {
   const [errMsg, setErrMsg] = useState<string>('');
   const [inputType] = useState<string>(props.type || '');
   const [keys] = useState<RegExp>(types[inputType].keys);
@@ -64,4 +64,4 @@ export const Input = ({ ...props }: InputProps) => {
     </div>
   );
 };
-Input.displayName = 'Input';
+ControlledInput.displayName = 'Input';

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FocusEvent } from 'react';
-import { Radio } from '../../../atoms';
+import { ControlledRadio } from '../../../atoms';
 import { RadioGroupProps, RadioInterface } from '../../../../utils/FormTypes';
 import './RadioGroup.css';
 
@@ -31,7 +31,7 @@ export const RadioGroup = ({ ...props }: RadioGroupProps) => {
               className="radio-wrapper"
               key={`${props.fieldName}-${radio.value}`}
             >
-              <Radio
+              <ControlledRadio
                 name={props.fieldName}
                 checked={
                   typeof radio.value === 'number'
@@ -42,7 +42,7 @@ export const RadioGroup = ({ ...props }: RadioGroupProps) => {
                 onChange={handleRadioGroup}
               >
                 {radio.label}
-              </Radio>
+              </ControlledRadio>
             </div>
           ))}
         </label>
