@@ -13,14 +13,16 @@ export const Radio = ({
   };
   return (
     <React.Fragment>
-      <input
-        {...props}
-        type="radio"
-        checked={props.checked || isChecked}
-        onChange={props.onChange}
-        onClick={props.onClick !== undefined ? handleSingleRadio : undefined}
-      />
-      <label className="radio-label">{children}</label>
+      <label className="radio-label">
+        <input
+          {...props}
+          type="radio"
+          checked={props.checked || isChecked}
+          onChange={props.onChange}
+          onClick={props.onClick !== undefined ? handleSingleRadio : undefined}
+        />
+        {children}
+      </label>
     </React.Fragment>
   );
 };
