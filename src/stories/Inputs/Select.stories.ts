@@ -77,7 +77,7 @@ export const MultiSelect: Story = {
   args: {
     label: 'Test: ',
     fieldName: 'SOMEFIELDNAME',
-    required: false,
+    required: true,
     multiple: true,
     options: [
       {

@@ -35,6 +35,12 @@ export type CheckboxGroupProps = {
   required: boolean;
   boxes: CheckboxInterface[];
 };
+export type TextareaProperties = {
+  label: string;
+  fieldName: string;
+  required: boolean;
+  value: string;
+} & React.HTMLProps<HTMLTextAreaElement>;
 export interface InputProperties {
   label: string;
   type: string;

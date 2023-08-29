@@ -1,0 +1,8 @@
+.select-container {
+  display: flex;
+  flex-direction: column;
+}
+.select-group-container {
+  display: inline-flex;
+  flex-direction: column;
+}

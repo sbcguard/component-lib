@@ -1,9 +1,14 @@
 import React, { useState, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
+import { TextareaProperties } from '../../../../utils/FormTypes';
 import { pholder, types } from '../../../../utils/constants';
 import './Textarea.css';
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
-export const Textarea = ({ ...props }) => {
+export const ControlledTextarea = ({ ...props }: TextareaProperties) => {
+  const filteredProps = {
+    ...props,
+    fieldName: undefined,
+  };
   const [errMsg, setErrMsg] = useState<string>('');
   const [text, setText] = useState<string>(props.value);
   const handleKeys = (e: KeyboardEvent<HTMLTextAreaElement>) => {
@@ -38,7 +43,8 @@ export const Textarea = ({ ...props }) => {
   return (
     <React.Fragment>
       <textarea
-        {...props}
+        {...filteredProps}
+        name={props.fieldName}
         required={true}
         spellCheck={true}
         placeholder={pholder.textarea}
@@ -52,4 +58,4 @@ export const Textarea = ({ ...props }) => {
     </React.Fragment>
   );
 };
-Textarea.displayName = 'Textarea';
+ControlledTextarea.displayName = 'ControlledTextarea';

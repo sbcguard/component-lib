@@ -1,14 +1,15 @@
 import React from 'react';
-import { Textarea as TextArea } from '../../../atoms';
+import { TextareaProperties } from '../../../../utils/FormTypes';
+import { ControlledTextarea } from '../../../atoms';
 import './Textarea.css';
 
-export const Textarea = ({ ...props }) => {
+export const Textarea = ({ ...props }: TextareaProperties) => {
   return (
     <div className="textarea-container">
       <label>
         <span className="textarea-label">{props.label}</span>
         <div className="textarea-wrapper">
-          <TextArea {...props} />
+          <ControlledTextarea {...props} />
         </div>
       </label>
     </div>

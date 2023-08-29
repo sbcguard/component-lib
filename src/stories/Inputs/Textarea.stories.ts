@@ -9,7 +9,11 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     label: {
-      description: 'Label value for the Radio group.',
+      description: 'Label value for the Textarea.',
+      control: { type: 'text' },
+    },
+    fieldName: {
+      description: 'Fieldname associated with the input.',
       control: { type: 'text' },
     },
     required: {
@@ -26,7 +30,9 @@ type Story = StoryObj<typeof meta>;
 export const TextArea: Story = {
   args: {
     label: 'Test: ',
+    fieldName: 'SomeField',
     value: '',
+    required: false,
   },
   parameters: {
     controls: {
