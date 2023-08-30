@@ -71,7 +71,7 @@ export const ControlledSelect = ({ ...props }: SelectProps) => {
 
   return (
     <React.Fragment>
-      <label>
+      <label className="select-label">
         {props.label}
         <select
           name={props.fieldName}

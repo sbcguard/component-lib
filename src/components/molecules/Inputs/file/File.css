@@ -1,0 +1,16 @@
+.file-container {
+  display: flex;
+  flex-direction: column;
+}
+.file-container label {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+.file-wrapper {
+  margin-left: 1em;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { Input } from '../../components/atoms';
+import { Input } from '../../components';
 import { types } from '../../utils/constants';
 //Commented code is for use with Typescript
 const meta = {

@@ -37,31 +37,26 @@ export const ControlledInput = ({ ...props }: InputProps) => {
     !required && isNull && !value && setErrMsg('');
   };
   return (
-    <div className="input-container">
-      <label>
-        {props.label}
-        <div className="input-wrapper">
-          <input
-            placeholder={pholder[inputType]}
-            /* Attributes above overridden by pass props */
-            {...props}
-            /* Attributes below preserved */
-            onInput={handleInput}
-            onChange={handleInput}
-            onBlur={handleInput}
-            onKeyDown={handleInputKey}
-          />
-          {inputType === 'range' && (
-            <div className="range-selector-display">
-              <span>{props.min}</span>
-              <span>{displayVal.toString()}</span>
-              <span>{props.max}</span>
-            </div>
-          )}
+    <React.Fragment>
+      <input
+        placeholder={pholder[inputType]}
+        /* Attributes above overridden by pass props */
+        {...props}
+        /* Attributes below preserved */
+        onInput={handleInput}
+        onChange={handleInput}
+        onBlur={handleInput}
+        onKeyDown={handleInputKey}
+      />
+      {inputType === 'range' && (
+        <div className="range-selector-display">
+          <span>{props.min}</span>
+          <span>{displayVal.toString()}</span>
+          <span>{props.max}</span>
         </div>
-      </label>
+      )}
       <span className="error">{errMsg}</span>
-    </div>
+    </React.Fragment>
   );
 };
-ControlledInput.displayName = 'Input';
+ControlledInput.displayName = 'ControlledInput';

@@ -5,7 +5,7 @@ import './File.css';
 
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
-export const FileInput = ({ ...props }: FileInputProps) => {
+export const ControlledFile = ({ ...props }: FileInputProps) => {
   const [errMsg, setErrMsg] = useState<string>('');
   const [inputType] = useState<string>(props.type || '');
   const [error] = useState<string>(types[inputType].error);
@@ -49,21 +49,16 @@ export const FileInput = ({ ...props }: FileInputProps) => {
     }
   };
   return (
-    <div className="file-container">
-      <label>
-        {props.label}
-        <div className="file-wrapper">
-          <input
-            /* Attributes above overridden by pass props */
-            {...props}
-            /* Attributes below preserved */
-            placeholder={pholder[inputType]}
-            onChange={handleInput}
-          />
-        </div>
-      </label>
+    <React.Fragment>
+      <input
+        /* Attributes above overridden by pass props */
+        {...props}
+        /* Attributes below preserved */
+        placeholder={pholder[inputType]}
+        onChange={handleInput}
+      />
       <span className="error">{errMsg}</span>
-    </div>
+    </React.Fragment>
   );
 };
-FileInput.displayName = 'File';
+ControlledFile.displayName = 'ControlledFile';
