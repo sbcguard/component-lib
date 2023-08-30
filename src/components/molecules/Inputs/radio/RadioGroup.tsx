@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FocusEvent } from 'react';
-import { ControlledRadio } from '../../../atoms';
+import { ControlledRadio, ErrorSpan } from '../../../atoms';
 import { RadioGroupProps, RadioInterface } from '../../../../utils/FormTypes';
 import './RadioGroup.css';
 
@@ -48,7 +48,7 @@ export const RadioGroup = ({ ...props }: RadioGroupProps) => {
         </label>
       </div>
       <div>
-        <span className="error">{errMsg}</span>
+        <ErrorSpan>{errMsg}</ErrorSpan>
       </div>
     </div>
   );

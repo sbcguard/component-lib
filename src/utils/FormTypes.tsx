@@ -49,7 +49,6 @@ export interface InputProperties {
 }
 export interface FileInputProperties {
   label: string;
-  type: string;
   multiple: boolean;
   required: boolean;
 }

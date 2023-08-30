@@ -1,0 +1,21 @@
+.cb-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cb-group-container {
+  width: 100%;
+  display: flex;
+}
+.cb-container .cb-grouped-label {
+  width: 100%;
+  display: flex;
+}
+.cb-group-label {
+  font-weight: 600;
+}
+.cb-wrapper {
+  display: flex;
+  margin-left: 1em;
+  align-items: center;
+}

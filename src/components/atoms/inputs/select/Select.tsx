@@ -5,6 +5,7 @@ import React, {
   ChangeEvent,
   MouseEvent,
 } from 'react';
+import { ErrorSpan } from '../../span/Error';
 import { OptionInterface, SelectProps } from '../../../../utils/FormTypes';
 import { types } from '../../../../utils/constants';
 import { Option } from './Option';
@@ -71,27 +72,24 @@ export const ControlledSelect = ({ ...props }: SelectProps) => {
 
   return (
     <React.Fragment>
-      <label className="select-label">
-        {props.label}
-        <select
-          name={props.fieldName}
-          multiple={props.multiple}
-          required={props.required}
-          onMouseDown={handleSelectClick}
-          onChange={validate}
-          onBlur={validate}
-        >
-          {!props.multiple && <option value="">Choose...</option>}
-          {options.map((option: OptionInterface) => (
-            <Option
-              key={`${props.fieldName}-${option.value}`}
-              value={option.value}
-              displayText={option.displayText}
-            />
-          ))}
-        </select>
-      </label>
-      <span className="error">{errMsg}</span>
+      <select
+        name={props.fieldName}
+        multiple={props.multiple}
+        required={props.required}
+        onMouseDown={handleSelectClick}
+        onChange={validate}
+        onBlur={validate}
+      >
+        {!props.multiple && <option value="">Choose...</option>}
+        {options.map((option: OptionInterface) => (
+          <Option
+            key={`${props.fieldName}-${option.value}`}
+            value={option.value}
+            displayText={option.displayText}
+          />
+        ))}
+      </select>
+      <ErrorSpan>{errMsg}</ErrorSpan>
     </React.Fragment>
   );
 };

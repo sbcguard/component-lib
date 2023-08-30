@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { CheckboxGroup } from '../../components/atoms/inputs/checkbox/CheckboxGroup';
+import { CheckboxGroup } from '../../components/molecules/inputs/checkbox/CheckboxGroup';
 //Commented code is for use with Typescript
 /** Checkbox Groups are used when there are multiple options, and no selection is required. <br />*/
 /** The constructor consist of 2 properties/arguements: <br />*/

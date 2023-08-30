@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
+import { ErrorSpan } from '../../span';
 import { pholder, types } from '../../../../utils/constants';
 import { InputProps } from '../../../../utils/FormTypes';
 import './Input.css';
@@ -55,7 +56,7 @@ export const ControlledInput = ({ ...props }: InputProps) => {
           <span>{props.max}</span>
         </div>
       )}
-      <span className="error">{errMsg}</span>
+      <ErrorSpan>{errMsg}</ErrorSpan>
     </React.Fragment>
   );
 };

@@ -16,3 +16,6 @@
   margin-left: 1em;
   align-items: flex-start;
 }
+.textarea-wrapper textarea {
+  width: 100%;
+}

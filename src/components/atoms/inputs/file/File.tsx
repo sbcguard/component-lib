@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent } from 'react';
+import { ErrorSpan } from '../../span';
 import { pholder, types } from '../../../../utils/constants';
 import { FileInputProps } from '../../../../utils/FormTypes';
 import './File.css';
@@ -7,7 +8,7 @@ import './File.css';
 //to override type, inverse will not override type
 export const ControlledFile = ({ ...props }: FileInputProps) => {
   const [errMsg, setErrMsg] = useState<string>('');
-  const [inputType] = useState<string>(props.type || '');
+  const [inputType] = useState<string>('file');
   const [error] = useState<string>(types[inputType].error);
   const [checkVal] = useState<RegExp>(types[inputType].value);
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -53,11 +54,12 @@ export const ControlledFile = ({ ...props }: FileInputProps) => {
       <input
         /* Attributes above overridden by pass props */
         {...props}
+        type="file"
         /* Attributes below preserved */
         placeholder={pholder[inputType]}
         onChange={handleInput}
       />
-      <span className="error">{errMsg}</span>
+      <ErrorSpan>{errMsg}</ErrorSpan>
     </React.Fragment>
   );
 };

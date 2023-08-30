@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
+import { ErrorSpan } from '../../span/Error';
 import { TextareaProperties } from '../../../../utils/FormTypes';
 import { pholder, types } from '../../../../utils/constants';
 import './Textarea.css';
@@ -54,7 +55,7 @@ export const ControlledTextarea = ({ ...props }: TextareaProperties) => {
         value={text}
         onBlur={validate}
       />
-      <span className="error">{errMsg}</span>
+      <ErrorSpan>{errMsg}</ErrorSpan>
     </React.Fragment>
   );
 };

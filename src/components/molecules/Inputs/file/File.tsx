@@ -6,14 +6,18 @@ import './File.css';
 //Placing type before props spread will default to type and allow props
 //to override type, inverse will not override type
 export const FileInput = ({ ...props }: FileInputProps) => {
+  const filteredProps = {
+    ...props,
+    type: undefined,
+  };
   return (
     <div className="file-container">
       <label>
-        <span>{props.label}</span>
+        <span className="file-label">{props.label}</span>
         <div className="file-wrapper">
           <ControlledFile
             /* Attributes above overridden by pass props */
-            {...props}
+            {...filteredProps}
             /* Attributes below preserved */
           />
         </div>

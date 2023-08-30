@@ -7,9 +7,12 @@ import { SelectProps } from '../../../../utils/FormTypes';
 export const Select = ({ ...props }: SelectProps) => {
   return (
     <div className="select-container">
-      <div className="select-group-container">
-        <ControlledSelect {...props} />
-      </div>
+      <label>
+        <span className="select-label">{props.label}</span>
+        <div className="select-wrapper">
+          <ControlledSelect {...props} />
+        </div>
+      </label>
     </div>
   );
 };

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { Checkbox } from './Checkbox';
+import { Checkbox, ErrorSpan } from '../../../atoms';
 import {
   CheckboxGroupProps,
   CheckboxInterface,
 } from '../../../../utils/FormTypes';
 import { types } from '../../../../utils/constants';
-import './Checkbox.css';
+import './CheckboxGroup.css';
 
 export const CheckboxGroup = ({ ...props }: CheckboxGroupProps) => {
   const [errMsg, setErrMsg] = useState<string>('');
@@ -37,26 +37,22 @@ export const CheckboxGroup = ({ ...props }: CheckboxGroupProps) => {
   };
   return (
     <div className="cb-container">
-      <div className="cb-group-container">
-        <label>
-          <span className="cb-group-label">{props.label}</span>
-          {boxes.map((box: CheckboxInterface) => (
-            <div key={`${props.fieldName}-${box.value}`} className="cb-wrapper">
-              <Checkbox
-                name={`${props.fieldName}-${box.value}`}
-                isChecked={box.isChecked}
-                value={box.value}
-                onChange={handleCheckboxGroup}
-              >
-                {box.label}
-              </Checkbox>
-            </div>
-          ))}
-        </label>
-      </div>
-      <div>
-        <span className="error">{errMsg}</span>
-      </div>
+      <label className="cb-grouped-label">
+        <span className="cb-group-label">{props.label}</span>
+        {boxes.map((box: CheckboxInterface) => (
+          <div key={`${props.fieldName}-${box.value}`} className="cb-wrapper">
+            <Checkbox
+              name={`${props.fieldName}-${box.value}`}
+              isChecked={box.isChecked}
+              value={box.value}
+              onChange={handleCheckboxGroup}
+            >
+              {box.label}
+            </Checkbox>
+          </div>
+        ))}
+      </label>
+      <ErrorSpan>{errMsg}</ErrorSpan>
       <input type="hidden" name={props.fieldName} value={val.join(',')} />
     </div>
   );
