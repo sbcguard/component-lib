@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { CheckboxGroup } from '../../components/molecules/inputs/checkbox/CheckboxGroup';
+import { CheckboxGroup } from '../../../components/molecules/inputs';
 //Commented code is for use with Typescript
 /** Checkbox Groups are used when there are multiple options, and no selection is required. <br />*/
 /** The constructor consist of 2 properties/arguements: <br />*/
@@ -52,7 +52,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
 export const Single: Story = {
   args: {
     label: 'Test: ',
@@ -65,6 +64,11 @@ export const Single: Story = {
         isChecked: false,
       },
     ],
+  },
+  parameters: {
+    controls: {
+      exclude: /boxes/g,
+    },
   },
 };
 
@@ -85,5 +89,10 @@ export const YesNo: Story = {
         isChecked: false,
       },
     ],
+  },
+  parameters: {
+    controls: {
+      exclude: /boxes/g,
+    },
   },
 };

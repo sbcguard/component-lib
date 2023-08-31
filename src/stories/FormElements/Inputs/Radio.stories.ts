@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { RadioGroup } from '../../components';
+import { RadioGroup } from '../../../components';
 //Commented code is for use with Typescript
 /** Radio Groups are used when there are multiple options, and only one selection needs to be made. <br />*/
 /** Intended for small number of options. For larger list, consider a select dropdown <br />*/

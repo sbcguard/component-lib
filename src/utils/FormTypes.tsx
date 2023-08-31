@@ -41,6 +41,14 @@ export type TextareaProperties = {
   required: boolean;
   value: string;
 } & React.HTMLProps<HTMLTextAreaElement>;
+
+export type ButtonProps = {
+  label: string;
+  type: 'button' | 'submit' | 'reset' | undefined;
+  styleClass: string;
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+} & React.HTMLProps<HTMLButtonElement>;
+
 export interface InputProperties {
   label: string;
   type: string;

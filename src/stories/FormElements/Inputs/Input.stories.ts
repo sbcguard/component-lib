@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { Input } from '../../components';
-import { types } from '../../utils/constants';
+import { Input } from '../../../components';
+import { types } from '../../../utils/constants';
 //Commented code is for use with Typescript
 const meta = {
   title: 'Form Elements/Inputs/Input',

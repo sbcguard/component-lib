@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { FileInput } from '../../components';
+import { FileInput } from '../../../components';
 //Commented code is for use with Typescript
 /**This input element validates both the extension (via accept attribute) and the name (via RegEx) of file(s) uploaded.  */
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     label: {
-      description: 'Label value for the Radio group.',
+      description: 'Label value for the input.',
       control: { type: 'text' },
     },
     type: {

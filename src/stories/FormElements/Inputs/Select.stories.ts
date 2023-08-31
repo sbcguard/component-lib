@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Meta, StoryObj } from '@storybook/react';
-import { Select } from '../../components';
+import { Select } from '../../../components';
 //Commented code is for use with Typescript
 /** Selects are used when there are multiple options, and many selections are possible. <br />*/
 /** The constructor consist of 4 properties/arguements: <br />*/
