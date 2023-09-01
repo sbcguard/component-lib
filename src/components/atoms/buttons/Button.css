@@ -1,10 +1,12 @@
 .btn {
-  border-radius: 0.5em;
-  font-size: 0.875rem /* 14px */;
+  display: flex;
+  align-items: center;
   font-weight: 600;
   box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.35);
 }
-.btn-c-primary {
-  background-color: dodgerblue;
-  color: white;
+.btn:hover {
+  scale: 1.025;
+}
+.btn svg {
+  margin-right: 0.25em;
 }

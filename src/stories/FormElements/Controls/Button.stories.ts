@@ -2,7 +2,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../../../components';
 //Commented code is for use with Typescript
-/**Buttons are used to perform some action on click. Either a form action, navigation, or trigger a page event.  */
+/**Buttons are used to perform some action on click. Either a form action, navigation, or trigger a page event (i.e. show/hide functionality).  */
+/**<br /> */
+/**There are 3 types of buttons: submit, reset, and button.  */
+/**<br /> */
+/**<br /> */
+/**Submit - submits the form the button is contained in  */
+/**<br /> */
+/**Reset - Clears the form the button is contained in  */
+/**<br /> */
+/**Button - used when not performing a form action  */
 const meta = {
   title: 'Form Elements/Controls/Button',
   component: Button,
@@ -18,7 +27,18 @@ const meta = {
       control: { type: 'select' },
     },
     styleClass: {
-      options: ['primary', 'secondary', 'alt', 'back', 'arrow'],
+      options: [
+        'primary',
+        'secondary',
+        'back',
+        'arrow',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark',
+      ],
       description: 'Button style',
       control: { type: 'select' },
     },
@@ -28,12 +48,56 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-/**Allows file(s) to be uploaded. */
 export const Primary: Story = {
   args: {
     label: 'Click Me',
     type: 'button',
     styleClass: 'primary',
+    onClick: () => {
+      alert('Some click function action.');
+    },
+  },
+  parameters: {
+    controls: {
+      exclude: /onClick/g,
+    },
+  },
+};
+export const Submit: Story = {
+  args: {
+    label: 'Submit',
+    type: 'submit',
+    styleClass: 'primary',
+    onClick: () => {
+      alert('Some click function action.');
+    },
+  },
+  parameters: {
+    controls: {
+      exclude: /onClick/g,
+    },
+  },
+};
+export const Reset: Story = {
+  args: {
+    label: 'Reset',
+    type: 'reset',
+    styleClass: 'warning',
+    onClick: () => {
+      alert('Some click function action.');
+    },
+  },
+  parameters: {
+    controls: {
+      exclude: /onClick/g,
+    },
+  },
+};
+export const Back: Story = {
+  args: {
+    label: 'Back',
+    type: 'button',
+    styleClass: 'back',
     onClick: () => {
       alert('Some click function action.');
     },
@@ -59,11 +123,11 @@ export const Secondary: Story = {
     },
   },
 };
-export const Alt: Story = {
+export const Success: Story = {
   args: {
     label: 'Click Me',
     type: 'button',
-    styleClass: 'alt',
+    styleClass: 'success',
     onClick: () => {
       alert('Some click function action.');
     },
@@ -74,11 +138,12 @@ export const Alt: Story = {
     },
   },
 };
-export const Back: Story = {
+
+export const Danger: Story = {
   args: {
     label: 'Click Me',
     type: 'button',
-    styleClass: 'back',
+    styleClass: 'danger',
     onClick: () => {
       alert('Some click function action.');
     },
@@ -89,11 +154,56 @@ export const Back: Story = {
     },
   },
 };
-export const Arrow: Story = {
+export const Warning: Story = {
   args: {
     label: 'Click Me',
     type: 'button',
-    styleClass: 'arrow',
+    styleClass: 'warning',
+    onClick: () => {
+      alert('Some click function action.');
+    },
+  },
+  parameters: {
+    controls: {
+      exclude: /onClick/g,
+    },
+  },
+};
+export const Info: Story = {
+  args: {
+    label: 'Click Me',
+    type: 'button',
+    styleClass: 'info',
+    onClick: () => {
+      alert('Some click function action.');
+    },
+  },
+  parameters: {
+    controls: {
+      exclude: /onClick/g,
+    },
+  },
+};
+export const Light: Story = {
+  args: {
+    label: 'Click Me',
+    type: 'button',
+    styleClass: 'light',
+    onClick: () => {
+      alert('Some click function action.');
+    },
+  },
+  parameters: {
+    controls: {
+      exclude: /onClick/g,
+    },
+  },
+};
+export const Dark: Story = {
+  args: {
+    label: 'Click Me',
+    type: 'button',
+    styleClass: 'dark',
     onClick: () => {
       alert('Some click function action.');
     },

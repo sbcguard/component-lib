@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from 'react';
+import { FaArrowLeft } from 'react-icons/fa6';
 import { ButtonProps } from '../../../utils/FormTypes';
 import './Button.css';
 //Placing type before props spread will default to type and allow props
@@ -9,7 +10,8 @@ export const Button = ({ ...props }: PropsWithChildren<ButtonProps>) => {
     styleClass: undefined,
   };
   return (
-    <button {...filteredProps} className={`btn btn-c-${props.styleClass}`}>
+    <button {...filteredProps} className={`btn btn-${props.styleClass}`}>
+      {props.styleClass === 'back' && <FaArrowLeft />}
       {props.label}
     </button>
   );
