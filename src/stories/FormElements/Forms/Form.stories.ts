@@ -4,7 +4,7 @@ import { Form } from '../../../components';
 //Commented code is for use with Typescript
 /**This is just a styled <form> where children are passed in to create the form content.  */
 const meta = {
-  title: 'Form Elements/Forms/Form',
+  title: 'Form Elements/Form',
   component: Form,
   tags: ['autodocs'],
   argTypes: {
@@ -19,7 +19,7 @@ const meta = {
     },
     name: {
       description: 'Form name attribute.',
-      control: { type: 'string' },
+      control: { type: 'text' },
     },
     method: {
       options: ['', 'GET', 'POST', 'OPTIONS', 'DELETE', 'TRACE'],
