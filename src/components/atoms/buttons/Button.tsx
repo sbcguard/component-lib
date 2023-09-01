@@ -9,6 +9,7 @@ export const Button = ({ ...props }: PropsWithChildren<ButtonProps>) => {
     ...props,
     styleClass: undefined,
   };
+  delete filteredProps.styleClass;
   return (
     <button {...filteredProps} className={`btn btn-${props.styleClass}`}>
       {props.styleClass === 'back' && <FaArrowLeft />}

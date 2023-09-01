@@ -59,7 +59,7 @@ export const Primary: Story = {
   },
   parameters: {
     controls: {
-      exclude: /onClick/g,
+      exclude: /onClick|styleClass/g,
     },
   },
 };
@@ -104,7 +104,7 @@ export const Back: Story = {
   },
   parameters: {
     controls: {
-      exclude: /onClick/g,
+      exclude: /onClick|styleClass/g,
     },
   },
 };
@@ -119,7 +119,7 @@ export const Secondary: Story = {
   },
   parameters: {
     controls: {
-      exclude: /onClick/g,
+      exclude: /onClick|styleClass/g,
     },
   },
 };
@@ -134,7 +134,7 @@ export const Success: Story = {
   },
   parameters: {
     controls: {
-      exclude: /onClick/g,
+      exclude: /onClick|styleClass/g,
     },
   },
 };
@@ -150,7 +150,7 @@ export const Danger: Story = {
   },
   parameters: {
     controls: {
-      exclude: /onClick/g,
+      exclude: /onClick|styleClass/g,
     },
   },
 };
@@ -165,7 +165,7 @@ export const Warning: Story = {
   },
   parameters: {
     controls: {
-      exclude: /onClick/g,
+      exclude: /onClick|styleClass/g,
     },
   },
 };
@@ -180,7 +180,7 @@ export const Info: Story = {
   },
   parameters: {
     controls: {
-      exclude: /onClick/g,
+      exclude: /onClick|styleClass/g,
     },
   },
 };
@@ -195,7 +195,7 @@ export const Light: Story = {
   },
   parameters: {
     controls: {
-      exclude: /onClick/g,
+      exclude: /onClick|styleClass/g,
     },
   },
 };
@@ -210,7 +210,7 @@ export const Dark: Story = {
   },
   parameters: {
     controls: {
-      exclude: /onClick/g,
+      exclude: /onClick|styleClass/g,
     },
   },
 };
