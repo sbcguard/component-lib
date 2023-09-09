@@ -1,10 +1,15 @@
-import React, { ChangeEvent, MouseEvent, HTMLProps } from 'react';
+import React, {
+  ChangeEvent,
+  MouseEvent,
+  HTMLProps,
+  PropsWithChildren,
+} from 'react';
 export type InputProps = InputProperties & HTMLProps<HTMLInputElement>;
 export type FileInputProps = FileInputProperties &
   React.HTMLProps<HTMLInputElement>;
 export type OptionProps = OptionInterface & HTMLProps<HTMLOptionElement>;
 
-export type FormProps = HTMLProps<HTMLFormElement>;
+export type FormProps = PropsWithChildren & HTMLProps<HTMLFormElement>;
 
 export type RadioProps = {
   name: string;
