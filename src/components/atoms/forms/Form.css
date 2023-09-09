@@ -4,4 +4,12 @@
   min-height: 5em;
   border-radius: 1em;
   border: 1px solid orange;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.form-row {
+  margin: 0.5em 0;
+  display: inline-flex;
+  justify-content: space-between;
 }
